@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Outlet, Link, RouterLink } from 'react-router-dom';
+import { Outlet, Link as RouterLink } from 'react-router-dom';
 import { 
   AppBar, 
   Toolbar, 
@@ -17,28 +17,40 @@ import {
   Grid,
   ListItemIcon,
   TextField,
+  Menu,
+  MenuItem,
+  Avatar,
+  Divider,
+  ListItemButton,
+  Collapse,
+  Stack,
 } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
-import CloseIcon from '@mui/icons-material/Close';
+import {
+  Menu as MenuIcon,
+  Close as CloseIcon,
+  Twitter as TwitterIcon,
+  Facebook as FacebookIcon,
+  Instagram as InstagramIcon,
+  LinkedIn as LinkedInIcon,
+  Business as BusinessIcon,
+  Info as InfoIcon,
+  Article as ArticleIcon,
+  LocalOffer as LocalOfferIcon,
+  ContactMail as ContactMailIcon,
+  AccountBalance as AccountBalanceIcon,
+  Receipt as ReceiptIcon,
+  Payments as PaymentsIcon,
+  Calculate as CalculateIcon,
+  AccountTree as AccountTreeIcon,
+  Analytics as AnalyticsIcon,
+  AutoFixHigh as AutoFixHighIcon,
+  Email as EmailIcon,
+  Phone as PhoneIcon,
+  LocationOn as LocationOnIcon,
+  ExpandLess,
+  ExpandMore
+} from '@mui/icons-material';
 import { motion } from 'framer-motion';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import TwitterIcon from '@mui/icons-material/Twitter';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import EmailIcon from '@mui/icons-material/Email';
-import PhoneIcon from '@mui/icons-material/Phone';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
-import BusinessIcon from '@mui/icons-material/Business';
-import InfoIcon from '@mui/icons-material/Info';
-import ArticleIcon from '@mui/icons-material/Article';
-import LocalOfferIcon from '@mui/icons-material/LocalOffer';
-import ContactMailIcon from '@mui/icons-material/ContactMail';
-import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
-import ReceiptIcon from '@mui/icons-material/Receipt';
-import PaymentsIcon from '@mui/icons-material/Payments';
-import CalculateIcon from '@mui/icons-material/Calculate';
-import AccountTreeIcon from '@mui/icons-material/AccountTree';
-import AnalyticsIcon from '@mui/icons-material/Analytics';
-import AutoFixHighIcon from '@mui/icons-material/AutoFixHigh';
 
 const MainLayout = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -75,7 +87,7 @@ const MainLayout = () => {
           <ListItem
             button
             key={item.text}
-            component={Link}
+            component={RouterLink}
             to={item.path}
             onClick={handleDrawerToggle}
             sx={{
@@ -106,7 +118,7 @@ const MainLayout = () => {
           <Toolbar disableGutters>
             <Typography
               variant="h6"
-              component={Link}
+              component={RouterLink}
               to="/"
               sx={{
                 flexGrow: 1,
@@ -135,7 +147,7 @@ const MainLayout = () => {
             ) : (
               <Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
                 {menuItems.map((item) => (
-                  <Link
+                  <RouterLink
                     key={item.text}
                     to={item.path}
                     style={{
@@ -159,11 +171,11 @@ const MainLayout = () => {
                         transition: 'transform 0.3s ease-in-out',
                       }}
                     />
-                  </Link>
+                  </RouterLink>
                 ))}
                 <Button
                   variant="contained"
-                  component={Link}
+                  component={RouterLink}
                   to="/contact"
                   sx={{
                     ml: 2,
@@ -330,7 +342,7 @@ const MainLayout = () => {
                       }
                     }}
                   >
-                    <Link 
+                    <RouterLink 
                       to={item.path}
                       sx={{ 
                         textDecoration: 'none',
@@ -348,7 +360,7 @@ const MainLayout = () => {
                           }
                         }}
                       />
-                    </Link>
+                    </RouterLink>
                   </ListItem>
                 ))}
               </List>
@@ -478,16 +490,16 @@ const MainLayout = () => {
             
             </Typography>
             <Box sx={{ display: 'flex', gap: 2 }}>
-              <Link to="/privacy" color="inherit" underline="none" variant="body2">
+              <RouterLink to="/privacy" color="inherit" underline="none" variant="body2">
                 Privacy Policy
-              </Link>
-              <Link to="/terms" color="inherit" underline="none" variant="body2">
+              </RouterLink>
+              <RouterLink to="/terms" color="inherit" underline="none" variant="body2">
               
                 Terms of Service
-              </Link>
-              <Link to="/sitemap" color="inherit" underline="none" variant="body2">
+              </RouterLink>
+              <RouterLink to="/sitemap" color="inherit" underline="none" variant="body2">
                 Sitemap
-              </Link>
+              </RouterLink>
             </Box>
           </Box>
         </Container>

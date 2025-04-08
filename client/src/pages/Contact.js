@@ -9,9 +9,9 @@ import {
   useTheme,
   Alert,
   CircularProgress,
+  MenuItem,
 } from '@mui/material';
 import { motion } from 'framer-motion';
-import axios from 'axios';
 import { useLocation } from 'react-router-dom';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import EmailIcon from '@mui/icons-material/Email';
@@ -27,9 +27,10 @@ const Contact = () => {
     company: '',
     phone: '',
     message: '',
-    plan: 'Full Time', // Default value
-    enquiryType: 'General', // New field
+    plan: 'Full Time',
+    enquiryType: 'General',
   });
+  const [formErrors, setFormErrors] = useState({});
   const [status, setStatus] = useState({
     loading: false,
     success: false,
@@ -49,52 +50,87 @@ const Contact = () => {
     }
   }, [location]);
 
+  const validateForm = () => {
+    const errors = {};
+    if (!formData.name.trim()) errors.name = 'Name is required';
+    if (!formData.email.trim()) {
+      errors.email = 'Email is required';
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      errors.email = 'Email is invalid';
+    }
+    if (!formData.message.trim()) errors.message = 'Message is required';
+    setFormErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
       [name]: value
     }));
+    // Clear error when user starts typing
+    if (formErrors[name]) {
+      setFormErrors(prev => ({
+        ...prev,
+        [name]: ''
+      }));
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    if (!validateForm()) {
+      setStatus({
+        loading: false,
+        success: false,
+        error: true,
+        message: 'Please fill in all required fields correctly.'
+      });
+      return;
+    }
+
     setStatus({ loading: true, success: false, error: false, message: '' });
 
     try {
       // Format the message with WhatsApp formatting
       const message = `*New Contact Form Submission*\n\n*Name:* ${formData.name}\n*Email:* ${formData.email}\n*Company:* ${formData.company || 'Not provided'}\n*Phone:* ${formData.phone || 'Not provided'}\n*Plan:* ${formData.plan}\n*Enquiry Type:* ${formData.enquiryType}\n\n*Message:*\n${formData.message}`;
 
-      // Create WhatsApp URL
-      const whatsappNumber = '919212250127';
+      // Get WhatsApp number from environment variable or use default
+      const whatsappNumber = process.env.REACT_APP_WHATSAPP_NUMBER || '919212250127';
       const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
       // Open WhatsApp in a new tab
-      window.open(whatsappUrl, '_blank');
+      const newWindow = window.open(whatsappUrl, '_blank');
       
-      setStatus({
-        loading: false,
-        success: true,
-        error: false,
-        message: 'Opening WhatsApp chat...'
-      });
+      if (newWindow) {
+        setStatus({
+          loading: false,
+          success: true,
+          error: false,
+          message: 'Opening WhatsApp chat...'
+        });
 
-      // Reset form
-      setFormData({
-        name: '',
-        email: '',
-        company: '',
-        phone: '',
-        message: '',
-        plan: 'Full Time',
-        enquiryType: 'General',
-      });
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          company: '',
+          phone: '',
+          message: '',
+          plan: 'Full Time',
+          enquiryType: 'General',
+        });
+      } else {
+        throw new Error('Could not open WhatsApp. Please check your popup settings.');
+      }
     } catch (error) {
       setStatus({
         loading: false,
         success: false,
         error: true,
-        message: 'Failed to open WhatsApp chat. Please try again.'
+        message: error.message || 'Failed to open WhatsApp chat. Please try again.'
       });
     }
   };
@@ -171,6 +207,8 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     variant="outlined"
+                    error={!!formErrors.name}
+                    helperText={formErrors.name}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -183,6 +221,8 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     variant="outlined"
+                    error={!!formErrors.email}
+                    helperText={formErrors.email}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -209,66 +249,57 @@ const Contact = () => {
                   <TextField
                     select
                     fullWidth
-                    label="Type of Enquiry"
-                    name="enquiryType"
-                    value={formData.enquiryType}
+                    label="Plan"
+                    name="plan"
+                    value={formData.plan}
                     onChange={handleChange}
                     variant="outlined"
-                    SelectProps={{
-                      native: true,
-                    }}
                   >
-                    <option value="General">General Enquiry</option>
-                    <option value="Service">Service Related</option>
-                    <option value="Support">Technical Support</option>
-                    <option value="Partnership">Partnership</option>
-                    <option value="Other">Other</option>
+                    <MenuItem value="Full Time">Full Time</MenuItem>
+                    <MenuItem value="Part Time">Part Time</MenuItem>
+                    <MenuItem value="Project Based">Project Based</MenuItem>
                   </TextField>
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <TextField
                     select
                     fullWidth
-                    label="Interested Plan"
-                    name="plan"
-                    value={formData.plan}
+                    label="Enquiry Type"
+                    name="enquiryType"
+                    value={formData.enquiryType}
                     onChange={handleChange}
                     variant="outlined"
-                    SelectProps={{
-                      native: true,
-                    }}
                   >
-                    <option value="Full Time">Full Time</option>
-                    <option value="Part Time">Part Time</option>
-                    <option value="Casual">Casual</option>
+                    <MenuItem value="General">General</MenuItem>
+                    <MenuItem value="Sales">Sales</MenuItem>
+                    <MenuItem value="Support">Support</MenuItem>
+                    <MenuItem value="Partnership">Partnership</MenuItem>
                   </TextField>
                 </Grid>
                 <Grid item xs={12}>
                   <TextField
                     required
                     fullWidth
-                    label="Message"
-                    name="message"
                     multiline
                     rows={4}
+                    label="Message"
+                    name="message"
                     value={formData.message}
                     onChange={handleChange}
                     variant="outlined"
+                    error={!!formErrors.message}
+                    helperText={formErrors.message}
                   />
                 </Grid>
                 <Grid item xs={12}>
                   <Button
                     type="submit"
                     variant="contained"
+                    color="primary"
                     size="large"
                     fullWidth
                     disabled={status.loading}
-                    sx={{
-                      py: 2,
-                      borderRadius: '50px',
-                      textTransform: 'none',
-                      fontSize: '1.1rem',
-                    }}
+                    sx={{ py: 1.5 }}
                   >
                     {status.loading ? (
                       <CircularProgress size={24} color="inherit" />
