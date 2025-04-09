@@ -169,6 +169,7 @@ const ServiceCard = ({ service }) => {
           <Button
             component={RouterLink}
             to={service.path}
+            onClick={() => window.scrollTo(0, 0)}
             variant="contained"
             sx={{
               backgroundColor: 'rgba(255, 255, 255, 0.95)',
@@ -245,6 +246,8 @@ const Home = () => {
               Your trusted partner for comprehensive financial solutions and business growth
             </Typography>
             <Button
+              onClick={() => window.scrollTo(0, 0)}
+
               variant="contained"
               color="secondary"
               size="large"
@@ -571,54 +574,471 @@ const Home = () => {
       <Box
         sx={{
           py: { xs: 8, md: 12 },
-          background: `linear-gradient(135deg, ${theme.palette.secondary.main} 0%, ${theme.palette.primary.main} 100%)`,
+          position: 'relative',
+          overflow: 'hidden',
+          background: 'linear-gradient(135deg, #1e40af 0%, #3b82f6 100%)',
           color: 'white',
+          '&::before': {
+            content: '""',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: 'radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1) 0%, transparent 50%)',
+            animation: 'pulse 8s ease-in-out infinite',
+            '@keyframes pulse': {
+              '0%': { transform: 'scale(1)' },
+              '50%': { transform: 'scale(1.2)' },
+              '100%': { transform: 'scale(1)' },
+            },
+          },
+          '&::after': {
+            content: '""',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: 'linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent)',
+            animation: 'shine 8s linear infinite',
+            '@keyframes shine': {
+              '0%': { transform: 'translateX(-100%)' },
+              '100%': { transform: 'translateX(100%)' },
+            },
+          },
         }}
       >
         <Container maxWidth="md">
-          <Box sx={{ textAlign: 'center' }}>
-            <Typography
-              variant="h2"
-              sx={{ mb: 4, fontWeight: 700 }}
+          <Box 
+            sx={{ 
+              textAlign: 'center',
+              position: 'relative',
+              zIndex: 1,
+            }}
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
             >
-              Ready to Optimize Your Finances?
-            </Typography>
-            <Typography
-              variant="h6"
-              sx={{ mb: 6, opacity: 0.9 }}
-            >
-              Let's discuss how we can help streamline your financial operations
-            </Typography>
-            <Button
-              variant="contained"
-              color="secondary"
-              size="large"
-              component={RouterLink}
-              to="/contact"
-              sx={{
-                px: 6,
-                py: 2,
-                borderRadius: '50px',
-                textTransform: 'none',
-                fontSize: '1.1rem',
-                backgroundColor: 'rgba(255, 255, 255, 0.95)',
-                color: 'white',
-                border: '2px solid',
-                borderColor: 'rgba(255, 255, 255, 0.2)',
-                backdropFilter: 'blur(4px)',
-                boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
-                textShadow: '0 1px 2px rgba(0,0,0,0.1)',
-                '&:hover': {
-                  backgroundColor: 'white',
-                  transform: 'translateY(-2px)',
-                  boxShadow: '0 6px 16px rgba(0,0,0,0.2)',
-                },
-                transition: 'all 0.3s ease',
-              }}
-            >
-              Contact Us
-            </Button>
+              <Typography
+                variant="h2"
+                sx={{ 
+                  mb: 4, 
+                  fontWeight: 700,
+                  background: 'linear-gradient(135deg, #fff 0%, #e0e7ff 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  fontSize: { xs: '2.5rem', md: '3.5rem' },
+                  textShadow: '0 2px 4px rgba(0,0,0,0.1)',
+                }}
+              >
+                Ready to Optimize Your Finances?
+              </Typography>
+              <Typography
+                variant="h6"
+                sx={{ 
+                  mb: 6, 
+                  color: '#e0e7ff',
+                  fontSize: { xs: '1.1rem', md: '1.25rem' },
+                  lineHeight: 1.6,
+                  maxWidth: 800,
+                  mx: 'auto',
+                }}
+              >
+                Let's discuss how we can help streamline your financial operations and drive your business growth forward.
+              </Typography>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  size="large"
+                  component={RouterLink}
+                  to="/contact"
+                  sx={{
+                    px: 6,
+                    py: 2,
+                    borderRadius: '50px',
+                    textTransform: 'none',
+                    fontSize: '1.1rem',
+                    backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                    color: '#1e40af',
+                    border: '2px solid',
+                    borderColor: 'rgba(255, 255, 255, 0.2)',
+                    backdropFilter: 'blur(4px)',
+                    boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+                    position: 'relative',
+                    overflow: 'hidden',
+                    '&::before': {
+                      content: '""',
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      background: 'linear-gradient(45deg, transparent, rgba(255,255,255,0.2), transparent)',
+                      backgroundSize: '200% 200%',
+                      animation: 'shine 3s linear infinite',
+                      '@keyframes shine': {
+                        '0%': { backgroundPosition: '200% 0' },
+                        '100%': { backgroundPosition: '-200% 0' },
+                      },
+                    },
+                    '&:hover': {
+                      backgroundColor: 'white',
+                      transform: 'translateY(-2px)',
+                      boxShadow: '0 6px 16px rgba(0,0,0,0.2)',
+                      '&::before': {
+                        animation: 'none',
+                      },
+                    },
+                    transition: 'all 0.3s ease',
+                  }}
+                >
+                  Get Started Today
+                </Button>
+              </motion.div>
+            </motion.div>
           </Box>
+        </Container>
+      </Box>
+
+      {/* Pricing Section */}
+      <Box
+        sx={{
+          py: { xs: 8, md: 12 },
+          position: 'relative',
+          overflow: 'hidden',
+          background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)',
+          color: 'white',
+          '&::before': {
+            content: '""',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: 'radial-gradient(circle at 50% 50%, rgba(79, 70, 229, 0.1) 0%, transparent 50%)',
+          }
+        }}
+      >
+        <Container maxWidth="lg">
+          <Grid container spacing={6} alignItems="center">
+            <Grid item xs={12} md={6}>
+              <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+              >
+                <Box
+                  sx={{
+                    position: 'relative',
+                    borderRadius: '20px',
+                    overflow: 'hidden',
+                    boxShadow: '0 20px 40px rgba(0,0,0,0.3)',
+                    '&::before': {
+                      content: '""',
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      background: 'linear-gradient(45deg, rgba(0,0,0,0.3), transparent)',
+                      zIndex: 1,
+                    }
+                  }}
+                >
+                  <Box
+                    component="img"
+                    src="pricing-preview.jpg"
+                    alt="Pricing Plans"
+                    sx={{
+                      width: '100%',
+                      height: 'auto',
+                      display: 'block',
+                      transition: 'transform 0.5s ease',
+                      '&:hover': {
+                        transform: 'scale(1.05)',
+                      }
+                    }}
+                  />
+                  <Box
+                    sx={{
+                      position: 'absolute',
+                      bottom: 0,
+                      left: 0,
+                      right: 0,
+                      p: 4,
+                      zIndex: 2,
+                      background: 'linear-gradient(to top, rgba(0,0,0,0.8), transparent)',
+                    }}
+                  >
+                    <Typography
+                      variant="h6"
+                      sx={{
+                        color: 'white',
+                        fontWeight: 600,
+                        mb: 1,
+                      }}
+                    >
+                      Flexible Pricing Options
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      sx={{
+                        color: 'rgba(255,255,255,0.8)',
+                      }}
+                    >
+                      Tailored to your business needs
+                    </Typography>
+                  </Box>
+                </Box>
+              </motion.div>
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+              >
+                <Typography
+                  variant="h2"
+                  sx={{
+                    mb: 3,
+                    fontWeight: 700,
+                    background: 'linear-gradient(135deg, #fff 0%, #94a3b8 100%)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    fontSize: { xs: '2.5rem', md: '3.5rem' },
+                    textShadow: '0 2px 4px rgba(0,0,0,0.1)',
+                  }}
+                >
+                  Transparent Pricing Plans
+                </Typography>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    mb: 4,
+                    color: '#94a3b8',
+                    fontSize: { xs: '1.1rem', md: '1.25rem' },
+                    lineHeight: 1.6,
+                  }}
+                >
+                  Choose the perfect plan that fits your business needs and budget. Our pricing is straightforward and designed to scale with your growth.
+                </Typography>
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  size="large"
+                  component={RouterLink}
+                  to="/pricing"
+                  onClick={() => window.scrollTo(0, 0)}
+                  sx={{
+                    px: 6,
+                    py: 2,
+                    borderRadius: '50px',
+                    textTransform: 'none',
+                    fontSize: '1.1rem',
+                    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                    color: 'white',
+                    border: '1px solid',
+                    borderColor: 'rgba(255, 255, 255, 0.2)',
+                    backdropFilter: 'blur(4px)',
+                    position: 'relative',
+                    overflow: 'hidden',
+                    '&::before': {
+                      content: '""',
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      background: 'linear-gradient(45deg, transparent, rgba(255,255,255,0.2), transparent)',
+                      backgroundSize: '200% 200%',
+                      animation: 'shine 3s linear infinite',
+                      '@keyframes shine': {
+                        '0%': { backgroundPosition: '200% 0' },
+                        '100%': { backgroundPosition: '-200% 0' },
+                      },
+                    },
+                    '&:hover': {
+                      backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                      transform: 'translateY(-2px)',
+                      boxShadow: '0 6px 16px rgba(0,0,0,0.2)',
+                      '&::before': {
+                        animation: 'none',
+                      },
+                    },
+                    transition: 'all 0.3s ease',
+                  }}
+                >
+                  View Pricing Plans
+                </Button>
+              </motion.div>
+            </Grid>
+          </Grid>
+        </Container>
+      </Box>
+
+      {/* About Section Preview */}
+      <Box
+        sx={{
+          py: { xs: 8, md: 12 },
+          position: 'relative',
+          overflow: 'hidden',
+          background: 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)',
+          color: 'white',
+          '&::before': {
+            content: '""',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: 'radial-gradient(circle at 50% 50%, rgba(255,255,255,0.05) 0%, transparent 50%)',
+          }
+        }}
+      >
+        <Container maxWidth="lg">
+          <Grid container spacing={6} alignItems="center">
+            <Grid item xs={12} md={6}>
+              <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+              >
+                <Typography
+                  variant="h2"
+                  sx={{
+                    mb: 3,
+                    fontWeight: 700,
+                    background: 'linear-gradient(135deg, #fff 0%, #a1a1aa 100%)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    fontSize: { xs: '2.5rem', md: '3.5rem' },
+                  }}
+                >
+                  Our Story
+                </Typography>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    mb: 4,
+                    color: '#a1a1aa',
+                    fontSize: { xs: '1.1rem', md: '1.25rem' },
+                    lineHeight: 1.6,
+                  }}
+                >
+                  Discover how we've been transforming financial services with innovation and expertise since our inception.
+                </Typography>
+                <Button
+                  component={RouterLink}
+                  to="/about"
+                  onClick={() => window.scrollTo(0, 0)}
+                  variant="contained"
+                  sx={{
+                    px: 4,
+                    py: 1.5,
+                    borderRadius: '50px',
+                    textTransform: 'none',
+                    fontSize: '1.1rem',
+                    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                    color: 'white',
+                    border: '1px solid',
+                    borderColor: 'rgba(255, 255, 255, 0.2)',
+                    backdropFilter: 'blur(4px)',
+                    '&:hover': {
+                      backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                      transform: 'translateY(-2px)',
+                    },
+                    transition: 'all 0.3s ease',
+                  }}
+                >
+                  Learn More About Us
+                </Button>
+              </motion.div>
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+              >
+                <Box
+                  sx={{
+                    position: 'relative',
+                    borderRadius: '20px',
+                    overflow: 'hidden',
+                    boxShadow: '0 20px 40px rgba(0,0,0,0.3)',
+                    '&::before': {
+                      content: '""',
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      background: 'linear-gradient(45deg, rgba(0,0,0,0.3), transparent)',
+                      zIndex: 1,
+                    }
+                  }}
+                >
+                  <Box
+                    component="img"
+                    src="/about-preview.jpg"
+                    alt="About Us"
+                    sx={{
+                      width: '100%',
+                      height: 'auto',
+                      display: 'block',
+                      transition: 'transform 0.5s ease',
+                      '&:hover': {
+                        transform: 'scale(1.05)',
+                      }
+                    }}
+                  />
+                  <Box
+                    sx={{
+                      position: 'absolute',
+                      bottom: 0,
+                      left: 0,
+                      right: 0,
+                      p: 4,
+                      zIndex: 2,
+                      background: 'linear-gradient(to top, rgba(0,0,0,0.8), transparent)',
+                    }}
+                  >
+                    <Typography
+                      variant="h6"
+                      sx={{
+                        color: 'white',
+                        fontWeight: 600,
+                        mb: 1,
+                      }}
+                    >
+                      Excellence in Financial Services
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      sx={{
+                        color: 'rgba(255,255,255,0.8)',
+                      }}
+                    >
+                      Trusted by businesses worldwide
+                    </Typography>
+                  </Box>
+                </Box>
+              </motion.div>
+            </Grid>
+          </Grid>
         </Container>
       </Box>
     </Box>

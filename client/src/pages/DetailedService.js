@@ -284,7 +284,11 @@ const DetailedService = () => {
     <Container maxWidth="lg" sx={{ py: 8 }}>
       <Button
         startIcon={<ArrowBackIcon />}
-        onClick={() => navigate('/services')}
+        onClick={() => {
+          navigate('/services')
+          window.scrollTo(0, 0);
+        }
+        }
         sx={{ mb: 4 }}
       >
         Back to Services
@@ -377,7 +381,12 @@ const DetailedService = () => {
                 variant="contained"
                 fullWidth
                 size="large"
-                onClick={() => navigate('/contact')}
+                onClick={
+                  () => {
+                    navigate('/contact');
+                    window.scrollTo(0, 0);
+                  }
+                }
               >
                 Get Started
               </Button>

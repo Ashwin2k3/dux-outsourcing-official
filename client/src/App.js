@@ -19,7 +19,7 @@ import Pricing from './pages/Pricing';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import Sitemap from './pages/Sitemap';
-
+import ScrollToTop from './components/scrollTop';
 const theme = createTheme({
   palette: {
     primary: {
@@ -172,6 +172,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Router>
+        <ScrollToTop />
         <Routes>
           <Route element={<MainLayout />}>
             <Route path="/" element={<Home />} />
