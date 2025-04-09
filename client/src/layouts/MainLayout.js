@@ -217,23 +217,39 @@ const MainLayout = () => {
       <Box
         component="footer"
         sx={{
-          py: 6,
+          py: { xs: 6, md: 8 },
           px: 2,
           mt: 'auto',
-          backgroundColor: 'background.paper',
-          borderTop: '1px solid',
-          borderColor: 'divider',
+          background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)',
+          color: 'white',
+          position: 'relative',
+          overflow: 'hidden',
+          '&::before': {
+            content: '""',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: 'radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.1) 0%, transparent 50%)',
+            animation: 'pulse 8s ease-in-out infinite',
+            '@keyframes pulse': {
+              '0%': { transform: 'scale(1)' },
+              '50%': { transform: 'scale(1.2)' },
+              '100%': { transform: 'scale(1)' },
+            },
+          },
         }}
       >
         <Container maxWidth="lg">
           <Grid container spacing={4}>
             {/* Company Info */}
             <Grid item xs={12} sm={6} md={3}>
-              <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+              <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
                 <Box
                   component="img"
-                  src="/logo.png"
-                  alt="MGNG & Co. Logo"
+                  src="/logo192.jpg"
+                  // alt="Dux Outsourcing Logo"
                   sx={{
                     height: 40,
                     mr: 2,
@@ -243,33 +259,34 @@ const MainLayout = () => {
                 <Typography
                   variant="h6"
                   sx={{
-                    background: 'linear-gradient(135deg, #2563eb 0%, #7c3aed 100%)',
+                    background: 'linear-gradient(135deg, #fff 0%, #e0e7ff 100%)',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
                     fontWeight: 700,
                     fontSize: '1.5rem',
                   }}
                 >
-                   Dux Outsourcing Pvt. Ltd.
+                  Dux Outsourcing Pvt. Ltd.
                 </Typography>
               </Box>
               <Typography 
                 variant="body2" 
-                color="text.secondary" 
                 sx={{ 
-                  mb: 2,
+                  mb: 3,
                   lineHeight: 1.6,
+                  color: '#e0e7ff',
+                  opacity: 0.9,
                 }}
               >
                 Your end-to-end outsourced accounting partner. Specializing in accounting and tax preparation services for businesses, CAs, and CPAs in Australia and India.
               </Typography>
               <Box sx={{ display: 'flex', gap: 2 }}>
                 <IconButton 
-                  color="primary" 
-                  aria-label="LinkedIn"
                   sx={{
+                    color: '#e0e7ff',
+                    backgroundColor: 'rgba(255, 255, 255, 0.1)',
                     '&:hover': {
-                      backgroundColor: 'rgba(10, 102, 194, 0.1)',
+                      backgroundColor: 'rgba(255, 255, 255, 0.2)',
                       transform: 'translateY(-2px)',
                     },
                     transition: 'all 0.3s ease',
@@ -278,11 +295,11 @@ const MainLayout = () => {
                   <LinkedInIcon />
                 </IconButton>
                 <IconButton 
-                  color="primary" 
-                  aria-label="Email"
                   sx={{
+                    color: '#e0e7ff',
+                    backgroundColor: 'rgba(255, 255, 255, 0.1)',
                     '&:hover': {
-                      backgroundColor: 'rgba(234, 67, 53, 0.1)',
+                      backgroundColor: 'rgba(255, 255, 255, 0.2)',
                       transform: 'translateY(-2px)',
                     },
                     transition: 'all 0.3s ease',
@@ -291,11 +308,11 @@ const MainLayout = () => {
                   <EmailIcon />
                 </IconButton>
                 <IconButton 
-                  color="primary" 
-                  aria-label="Phone"
                   sx={{
+                    color: '#e0e7ff',
+                    backgroundColor: 'rgba(255, 255, 255, 0.1)',
                     '&:hover': {
-                      backgroundColor: 'rgba(52, 168, 83, 0.1)',
+                      backgroundColor: 'rgba(255, 255, 255, 0.2)',
                       transform: 'translateY(-2px)',
                     },
                     transition: 'all 0.3s ease',
@@ -310,9 +327,10 @@ const MainLayout = () => {
             <Grid item xs={12} sm={6} md={3}>
               <Typography 
                 variant="h6" 
-                color="text.primary" 
-                gutterBottom
                 sx={{
+                  mb: 3,
+                  color: 'white',
+                  fontWeight: 600,
                   position: 'relative',
                   '&::after': {
                     content: '""',
@@ -321,7 +339,7 @@ const MainLayout = () => {
                     left: 0,
                     width: '40px',
                     height: '2px',
-                    backgroundColor: 'primary.main',
+                    background: 'linear-gradient(90deg, #fff, transparent)',
                   }
                 }}
               >
@@ -333,10 +351,10 @@ const MainLayout = () => {
                     key={item.text} 
                     disablePadding 
                     sx={{ 
-                      mb: 1,
+                      mb: 1.5,
                       '&:hover': {
                         '& .MuiTypography-root': {
-                          color: 'primary.main',
+                          color: 'white',
                           transform: 'translateX(5px)',
                         }
                       }
@@ -344,7 +362,7 @@ const MainLayout = () => {
                   >
                     <RouterLink 
                       to={item.path}
-                      sx={{ 
+                      style={{ 
                         textDecoration: 'none',
                         width: '100%',
                         transition: 'all 0.3s ease',
@@ -354,9 +372,10 @@ const MainLayout = () => {
                         primary={item.text}
                         sx={{
                           '& .MuiTypography-root': {
-                            color: 'text.secondary',
+                            color: '#e0e7ff',
                             transition: 'all 0.3s ease',
                             fontSize: '0.9rem',
+                            opacity: 0.9,
                           }
                         }}
                       />
@@ -370,9 +389,10 @@ const MainLayout = () => {
             <Grid item xs={12} sm={6} md={3}>
               <Typography 
                 variant="h6" 
-                color="text.primary" 
-                gutterBottom
                 sx={{
+                  mb: 3,
+                  color: 'white',
+                  fontWeight: 600,
                   position: 'relative',
                   '&::after': {
                     content: '""',
@@ -381,7 +401,7 @@ const MainLayout = () => {
                     left: 0,
                     width: '40px',
                     height: '2px',
-                    backgroundColor: 'primary.main',
+                    background: 'linear-gradient(90deg, #fff, transparent)',
                   }
                 }}
               >
@@ -389,7 +409,7 @@ const MainLayout = () => {
               </Typography>
               <List dense>
                 <ListItem disablePadding sx={{ mb: 2 }}>
-                  <ListItemIcon>
+                  <ListItemIcon sx={{ minWidth: 40, color: '#e0e7ff' }}>
                     <LocationOnIcon fontSize="small" />
                   </ListItemIcon>
                   <ListItemText 
@@ -401,10 +421,16 @@ const MainLayout = () => {
                         Delhi 110 085, India
                       </>
                     }
+                    sx={{
+                      '& .MuiTypography-root': {
+                        color: '#e0e7ff',
+                        opacity: 0.9,
+                      }
+                    }}
                   />
                 </ListItem>
                 <ListItem disablePadding sx={{ mb: 2 }}>
-                  <ListItemIcon>
+                  <ListItemIcon sx={{ minWidth: 40, color: '#e0e7ff' }}>
                     <LocationOnIcon fontSize="small" />
                   </ListItemIcon>
                   <ListItemText 
@@ -416,19 +442,41 @@ const MainLayout = () => {
                         Australia
                       </>
                     }
+                    sx={{
+                      '& .MuiTypography-root': {
+                        color: '#e0e7ff',
+                        opacity: 0.9,
+                      }
+                    }}
                   />
                 </ListItem>
                 <ListItem disablePadding sx={{ mb: 2 }}>
-                  <ListItemIcon>
+                  <ListItemIcon sx={{ minWidth: 40, color: '#e0e7ff' }}>
                     <EmailIcon fontSize="small" />
                   </ListItemIcon>
-                  <ListItemText primary="duxoutsourcing@gmail.com" />
+                  <ListItemText 
+                    primary="duxoutsourcing@gmail.com"
+                    sx={{
+                      '& .MuiTypography-root': {
+                        color: '#e0e7ff',
+                        opacity: 0.9,
+                      }
+                    }}
+                  />
                 </ListItem>
                 <ListItem disablePadding>
-                  <ListItemIcon>
+                  <ListItemIcon sx={{ minWidth: 40, color: '#e0e7ff' }}>
                     <PhoneIcon fontSize="small" />
                   </ListItemIcon>
-                  <ListItemText primary="+91 92122 50127" />
+                  <ListItemText 
+                    primary="+91 92122 50127"
+                    sx={{
+                      '& .MuiTypography-root': {
+                        color: '#e0e7ff',
+                        opacity: 0.9,
+                      }
+                    }}
+                  />
                 </ListItem>
               </List>
             </Grid>
@@ -437,9 +485,10 @@ const MainLayout = () => {
             <Grid item xs={12} sm={6} md={3}>
               <Typography 
                 variant="h6" 
-                color="text.primary" 
-                gutterBottom
                 sx={{
+                  mb: 3,
+                  color: 'white',
+                  fontWeight: 600,
                   position: 'relative',
                   '&::after': {
                     content: '""',
@@ -448,23 +497,58 @@ const MainLayout = () => {
                     left: 0,
                     width: '40px',
                     height: '2px',
-                    backgroundColor: 'primary.main',
+                    background: 'linear-gradient(90deg, #fff, transparent)',
                   }
                 }}
               >
                 Get Updates
               </Typography>
-              <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+              <Typography 
+                variant="body2" 
+                sx={{ 
+                  mb: 3,
+                  color: '#e0e7ff',
+                  opacity: 0.9,
+                }}
+              >
                 Subscribe to our newsletter for the latest updates in accounting and tax services.
               </Typography>
-              <Box component="form" sx={{ display: 'flex', gap: 1 }}>
+              <Box 
+                component="form" 
+                sx={{ 
+                  display: 'flex', 
+                  gap: 1,
+                  '& .MuiOutlinedInput-root': {
+                    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                    color: 'white',
+                    '& fieldset': {
+                      borderColor: 'rgba(255, 255, 255, 0.2)',
+                    },
+                    '&:hover fieldset': {
+                      borderColor: 'rgba(255, 255, 255, 0.4)',
+                    },
+                    '&.Mui-focused fieldset': {
+                      borderColor: 'rgba(255, 255, 255, 0.6)',
+                    },
+                  },
+                }}
+              >
                 <TextField
                   size="small"
                   placeholder="Your email"
                   variant="outlined"
                   sx={{ flexGrow: 1 }}
                 />
-                <Button variant="contained" color="primary">
+                <Button 
+                  variant="contained" 
+                  sx={{
+                    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                    color: 'white',
+                    '&:hover': {
+                      backgroundColor: 'rgba(255, 255, 255, 0.3)',
+                    },
+                  }}
+                >
                   Subscribe
                 </Button>
               </Box>
@@ -474,10 +558,10 @@ const MainLayout = () => {
           {/* Bottom Bar */}
           <Box
             sx={{
-              mt: 4,
-              pt: 2,
+              mt: 6,
+              pt: 4,
               borderTop: '1px solid',
-              borderColor: 'divider',
+              borderColor: 'rgba(255, 255, 255, 0.1)',
               display: 'flex',
               flexDirection: { xs: 'column', sm: 'row' },
               justifyContent: 'space-between',
@@ -485,19 +569,53 @@ const MainLayout = () => {
               gap: 2,
             }}
           >
-            <Typography variant="body2" color="text.secondary">
+            <Typography 
+              variant="body2" 
+              sx={{ 
+                color: '#e0e7ff',
+                opacity: 0.8,
+              }}
+            >
               © {new Date().getFullYear()} Dux Outsourcing Pvt. Ltd. All rights reserved.
-            
             </Typography>
-            <Box sx={{ display: 'flex', gap: 2 }}>
-              <RouterLink to="/privacy" color="inherit" underline="none" variant="body2">
+            <Box sx={{ display: 'flex', gap: 3 }}>
+              <RouterLink 
+                to="/privacy" 
+                style={{ 
+                  textDecoration: 'none',
+                  color: '#e0e7ff',
+                  opacity: 0.8,
+                  '&:hover': {
+                    opacity: 1,
+                  },
+                }}
+              >
                 Privacy Policy
               </RouterLink>
-              <RouterLink to="/terms" color="inherit" underline="none" variant="body2">
-              
+              <RouterLink 
+                to="/terms" 
+                style={{ 
+                  textDecoration: 'none',
+                  color: '#e0e7ff',
+                  opacity: 0.8,
+                  '&:hover': {
+                    opacity: 1,
+                  },
+                }}
+              >
                 Terms of Service
               </RouterLink>
-              <RouterLink to="/sitemap" color="inherit" underline="none" variant="body2">
+              <RouterLink 
+                to="/sitemap" 
+                style={{ 
+                  textDecoration: 'none',
+                  color: '#e0e7ff',
+                  opacity: 0.8,
+                  '&:hover': {
+                    opacity: 1,
+                  },
+                }}
+              >
                 Sitemap
               </RouterLink>
             </Box>
