@@ -137,7 +137,7 @@ const Contact = () => {
 
   return (
     <Box>
-      {/* Hero Section */}
+      {/* Hero and Form Section */}
       <Box
         sx={{
           py: { xs: 8, md: 12 },
@@ -177,82 +177,56 @@ const Contact = () => {
         }}
       >
         <Container maxWidth="lg">
-          <Box sx={{ textAlign: 'center', maxWidth: 800, mx: 'auto', position: 'relative', zIndex: 1 }}>
-            <Typography
-              variant="h1"
-              sx={{
-                fontWeight: 700,
-                mb: 3,
-                fontSize: { xs: '2.5rem', md: '3.5rem' },
-                textShadow: '0 2px 4px rgba(0,0,0,0.2)',
-              }}
+          {/* Hero Section */}
+          <Box sx={{ textAlign: 'center', maxWidth: 800, mx: 'auto', mb: { xs: 6, md: 8 }, position: 'relative', zIndex: 1 }}>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
             >
-              Get in Touch
-            </Typography>
-            <Typography
-              variant="h5"
-              sx={{
-                mb: 4,
-                opacity: 0.9,
-                textShadow: '0 1px 2px rgba(0,0,0,0.1)',
-              }}
-            >
-              Let's discuss how we can help your business grow
-            </Typography>
+              <Typography
+                variant="h1"
+                sx={{
+                  fontWeight: 700,
+                  mb: 3,
+                  fontSize: { xs: '2.5rem', md: '3.5rem' },
+                  textShadow: '0 2px 4px rgba(0,0,0,0.2)',
+                  background: 'linear-gradient(135deg, #fff 0%, #e0e7ff 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                }}
+              >
+                Get in Touch
+              </Typography>
+              <Typography
+                variant="h5"
+                sx={{
+                  mb: 4,
+                  opacity: 0.9,
+                  textShadow: '0 1px 2px rgba(0,0,0,0.1)',
+                  color: '#e0e7ff',
+                }}
+              >
+                Let's discuss how we can help your business grow
+              </Typography>
+            </motion.div>
           </Box>
-        </Container>
-      </Box>
 
-      {/* Contact Form */}
-      <Box 
-        sx={{ 
-          py: { xs: 8, md: 12 },
-          position: 'relative',
-          overflow: 'hidden',
-          background: 'linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%)',
-          '&::before': {
-            content: '""',
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            background: 'radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1) 0%, transparent 50%)',
-            animation: 'pulse 8s ease-in-out infinite',
-            '@keyframes pulse': {
-              '0%': { transform: 'scale(1)' },
-              '50%': { transform: 'scale(1.2)' },
-              '100%': { transform: 'scale(1)' },
-            },
-          },
-          '&::after': {
-            content: '""',
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            background: 'linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent)',
-            animation: 'shine 8s linear infinite',
-            '@keyframes shine': {
-              '0%': { transform: 'translateX(-100%)' },
-              '100%': { transform: 'translateX(100%)' },
-            },
-          },
-        }}
-      >
-        <Container maxWidth="md">
+          {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
             <Box
               component="form"
               onSubmit={handleSubmit}
               sx={{
-                p: 4,
+                maxWidth: 800,
+                mx: 'auto',
+                p: { xs: 3, md: 4 },
                 borderRadius: 2,
                 boxShadow: '0 8px 32px rgba(0, 0, 0, 0.2)',
                 background: 'rgba(255, 255, 255, 0.95)',
@@ -289,6 +263,20 @@ const Contact = () => {
                     variant="outlined"
                     error={!!formErrors.name}
                     helperText={formErrors.name}
+                    sx={{
+                      '& .MuiOutlinedInput-root': {
+                        backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                        '& fieldset': {
+                          borderColor: 'rgba(0, 0, 0, 0.1)',
+                        },
+                        '&:hover fieldset': {
+                          borderColor: 'rgba(0, 0, 0, 0.2)',
+                        },
+                        '&.Mui-focused fieldset': {
+                          borderColor: 'primary.main',
+                        },
+                      },
+                    }}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -303,6 +291,20 @@ const Contact = () => {
                     variant="outlined"
                     error={!!formErrors.email}
                     helperText={formErrors.email}
+                    sx={{
+                      '& .MuiOutlinedInput-root': {
+                        backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                        '& fieldset': {
+                          borderColor: 'rgba(0, 0, 0, 0.1)',
+                        },
+                        '&:hover fieldset': {
+                          borderColor: 'rgba(0, 0, 0, 0.2)',
+                        },
+                        '&.Mui-focused fieldset': {
+                          borderColor: 'primary.main',
+                        },
+                      },
+                    }}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -313,6 +315,20 @@ const Contact = () => {
                     value={formData.company}
                     onChange={handleChange}
                     variant="outlined"
+                    sx={{
+                      '& .MuiOutlinedInput-root': {
+                        backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                        '& fieldset': {
+                          borderColor: 'rgba(0, 0, 0, 0.1)',
+                        },
+                        '&:hover fieldset': {
+                          borderColor: 'rgba(0, 0, 0, 0.2)',
+                        },
+                        '&.Mui-focused fieldset': {
+                          borderColor: 'primary.main',
+                        },
+                      },
+                    }}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -323,6 +339,20 @@ const Contact = () => {
                     value={formData.phone}
                     onChange={handleChange}
                     variant="outlined"
+                    sx={{
+                      '& .MuiOutlinedInput-root': {
+                        backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                        '& fieldset': {
+                          borderColor: 'rgba(0, 0, 0, 0.1)',
+                        },
+                        '&:hover fieldset': {
+                          borderColor: 'rgba(0, 0, 0, 0.2)',
+                        },
+                        '&.Mui-focused fieldset': {
+                          borderColor: 'primary.main',
+                        },
+                      },
+                    }}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -334,6 +364,20 @@ const Contact = () => {
                     value={formData.plan}
                     onChange={handleChange}
                     variant="outlined"
+                    sx={{
+                      '& .MuiOutlinedInput-root': {
+                        backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                        '& fieldset': {
+                          borderColor: 'rgba(0, 0, 0, 0.1)',
+                        },
+                        '&:hover fieldset': {
+                          borderColor: 'rgba(0, 0, 0, 0.2)',
+                        },
+                        '&.Mui-focused fieldset': {
+                          borderColor: 'primary.main',
+                        },
+                      },
+                    }}
                   >
                     <MenuItem value="Full Time">Full Time</MenuItem>
                     <MenuItem value="Part Time">Part Time</MenuItem>
@@ -349,6 +393,20 @@ const Contact = () => {
                     value={formData.enquiryType}
                     onChange={handleChange}
                     variant="outlined"
+                    sx={{
+                      '& .MuiOutlinedInput-root': {
+                        backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                        '& fieldset': {
+                          borderColor: 'rgba(0, 0, 0, 0.1)',
+                        },
+                        '&:hover fieldset': {
+                          borderColor: 'rgba(0, 0, 0, 0.2)',
+                        },
+                        '&.Mui-focused fieldset': {
+                          borderColor: 'primary.main',
+                        },
+                      },
+                    }}
                   >
                     <MenuItem value="General">General</MenuItem>
                     <MenuItem value="Sales">Sales</MenuItem>
@@ -369,6 +427,20 @@ const Contact = () => {
                     variant="outlined"
                     error={!!formErrors.message}
                     helperText={formErrors.message}
+                    sx={{
+                      '& .MuiOutlinedInput-root': {
+                        backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                        '& fieldset': {
+                          borderColor: 'rgba(0, 0, 0, 0.1)',
+                        },
+                        '&:hover fieldset': {
+                          borderColor: 'rgba(0, 0, 0, 0.2)',
+                        },
+                        '&.Mui-focused fieldset': {
+                          borderColor: 'primary.main',
+                        },
+                      },
+                    }}
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -379,7 +451,16 @@ const Contact = () => {
                     size="large"
                     fullWidth
                     disabled={status.loading}
-                    sx={{ py: 1.5 }}
+                    sx={{ 
+                      py: 1.5,
+                      background: 'linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%)',
+                      '&:hover': {
+                        background: 'linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%)',
+                        transform: 'translateY(-2px)',
+                        boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
+                      },
+                      transition: 'all 0.3s ease',
+                    }}
                   >
                     {status.loading ? (
                       <CircularProgress size={24} color="inherit" />

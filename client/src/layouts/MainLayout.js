@@ -248,10 +248,10 @@ const MainLayout = () => {
               <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
                 <Box
                   component="img"
-                  src="/logo192.jpg"
+                  src="/logo192-removebg.PNG"
                   // alt="Dux Outsourcing Logo"
                   sx={{
-                    height: 40,
+                    height: 150,
                     mr: 2,
                     filter: 'brightness(0) invert(1)',
                   }}
