@@ -260,18 +260,142 @@ const About = () => {
       </Box>
 
       {/* Team Section */}
-      <Box sx={{ py: { xs: 8, md: 12 } }}>
+      <Box 
+        sx={{ 
+          py: { xs: 8, md: 12 },
+          position: 'relative',
+          overflow: 'hidden',
+          background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)',
+          '&::before': {
+            content: '""',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: 'radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.1) 0%, transparent 50%)',
+            animation: 'pulse 8s ease-in-out infinite',
+            '@keyframes pulse': {
+              '0%': { transform: 'scale(1)' },
+              '50%': { transform: 'scale(1.2)' },
+              '100%': { transform: 'scale(1)' },
+            },
+          },
+          '&::after': {
+            content: '""',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: 'linear-gradient(45deg, transparent, rgba(99, 102, 241, 0.05), transparent)',
+            animation: 'shine 8s linear infinite',
+            '@keyframes shine': {
+              '0%': { transform: 'translateX(-100%)' },
+              '100%': { transform: 'translateX(100%)' },
+            },
+          },
+        }}
+      >
         <Container maxWidth="lg">
-          <Typography variant="h4" sx={{ mb: 6, textAlign: 'center' }}>
-            Meet Our Board of Directors & Advisor
-          </Typography>
+          <Box
+            sx={{
+              position: 'relative',
+              mb: { xs: 8, md: 12 },
+              '&::before': {
+                content: '""',
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                width: '100%',
+                height: '100%',
+                background: 'radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%)',
+                zIndex: 0,
+              },
+            }}
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <Typography 
+                variant="h1" 
+                sx={{ 
+                  mb: 2, 
+                  textAlign: 'center',
+                  fontWeight: 800,
+                  background: 'linear-gradient(135deg, #fff 0%, #e0e7ff 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  fontSize: { xs: '3rem', md: '4.5rem' },
+                  textShadow: '0 2px 4px rgba(0,0,0,0.1)',
+                  position: 'relative',
+                  zIndex: 1,
+                }}
+              >
+                Meet Our Board of Directors & Advisor
+              </Typography>
+              <Typography
+                variant="h6"
+                sx={{
+                  textAlign: 'center',
+                  color: '#e0e7ff',
+                  fontWeight: 400,
+                  fontSize: { xs: '1.1rem', md: '1.25rem' },
+                  maxWidth: 800,
+                  mx: 'auto',
+                  position: 'relative',
+                  zIndex: 1,
+                }}
+              >
+                Meet the visionary leaders who guide our company's success and innovation
+              </Typography>
+              <Box
+                sx={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  mt: 4,
+                  position: 'relative',
+                  zIndex: 1,
+                }}
+              >
+                <Box
+                  sx={{
+                    width: 100,
+                    height: 4,
+                    background: 'linear-gradient(90deg, #fff 0%, #e0e7ff 100%)',
+                    borderRadius: 2,
+                    position: 'relative',
+                    '&::before': {
+                      content: '""',
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent)',
+                      animation: 'shine 2s linear infinite',
+                      '@keyframes shine': {
+                        '0%': { transform: 'translateX(-100%)' },
+                        '100%': { transform: 'translateX(100%)' },
+                      },
+                    },
+                  }}
+                />
+              </Box>
+            </motion.div>
+          </Box>
           <Grid container spacing={4}>
             {team.map((member, index) => (
               <Grid item xs={12} md={4} key={index}>
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
                 >
                   <Card
                     sx={{
@@ -282,11 +406,20 @@ const About = () => {
                       textAlign: 'center',
                       p: 3,
                       transition: 'all 0.3s ease',
+                      background: 'rgba(255, 255, 255, 0.05)',
+                      backdropFilter: 'blur(10px)',
+                      border: '1px solid',
+                      borderColor: 'rgba(255, 255, 255, 0.1)',
+                      boxShadow: '0 8px 32px rgba(0, 0, 0, 0.2)',
                       '&:hover': {
                         transform: 'translateY(-8px)',
-                        boxShadow: 6,
+                        boxShadow: '0 12px 40px rgba(0, 0, 0, 0.3)',
+                        background: 'rgba(255, 255, 255, 0.1)',
+                        '& .member-image': {
+                          transform: 'scale(1.05)',
+                          boxShadow: '0 8px 24px rgba(0, 0, 0, 0.3)',
+                        },
                       },
-                      background: `linear-gradient(135deg, ${theme.palette.background.paper} 0%, ${theme.palette.background.default} 100%)`,
                     }}
                   >
                     <Avatar

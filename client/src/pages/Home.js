@@ -436,25 +436,68 @@ const Home = () => {
       </Box>
 
       {/* Services Section */}
-      <Box sx={{ py: { xs: 8, md: 12 } }}>
+      <Box 
+        sx={{ 
+          py: { xs: 8, md: 12 },
+          position: 'relative',
+          overflow: 'hidden',
+          background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)',
+          '&::before': {
+            content: '""',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: 'radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.1) 0%, transparent 50%)',
+            animation: 'pulse 8s ease-in-out infinite',
+            '@keyframes pulse': {
+              '0%': { transform: 'scale(1)' },
+              '50%': { transform: 'scale(1.2)' },
+              '100%': { transform: 'scale(1)' },
+            },
+          },
+          '&::after': {
+            content: '""',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: 'linear-gradient(45deg, transparent, rgba(99, 102, 241, 0.05), transparent)',
+            animation: 'shine 8s linear infinite',
+            '@keyframes shine': {
+              '0%': { transform: 'translateX(-100%)' },
+              '100%': { transform: 'translateX(100%)' },
+            },
+          },
+        }}
+      >
         <Container maxWidth="lg">
-          <Box sx={{ textAlign: 'center', mb: 6 }}>
+          <Box sx={{ textAlign: 'center', mb: 6, position: 'relative', zIndex: 1 }}>
             <Typography
               variant="h2"
               sx={{
                 fontWeight: 700,
                 mb: 2,
-                background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.secondary.main} 100%)`,
+                background: 'linear-gradient(135deg, #fff 0%, #e0e7ff 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
+                fontSize: { xs: '2.5rem', md: '3.5rem' },
+                textShadow: '0 2px 4px rgba(0,0,0,0.1)',
               }}
             >
               Financial Services
             </Typography>
             <Typography
               variant="h6"
-              color="text.secondary"
-              sx={{ maxWidth: 800, mx: 'auto' }}
+              sx={{ 
+                color: '#e0e7ff',
+                fontSize: { xs: '1.1rem', md: '1.25rem' },
+                maxWidth: 800,
+                mx: 'auto',
+                opacity: 0.9,
+              }}
             >
               Comprehensive financial solutions tailored to your business needs
             </Typography>

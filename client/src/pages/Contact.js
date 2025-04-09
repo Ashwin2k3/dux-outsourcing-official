@@ -141,18 +141,50 @@ const Contact = () => {
       <Box
         sx={{
           py: { xs: 8, md: 12 },
-          background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.secondary.main} 100%)`,
+          position: 'relative',
+          overflow: 'hidden',
+          background: 'linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%)',
+          '&::before': {
+            content: '""',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: 'radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1) 0%, transparent 50%)',
+            animation: 'pulse 8s ease-in-out infinite',
+            '@keyframes pulse': {
+              '0%': { transform: 'scale(1)' },
+              '50%': { transform: 'scale(1.2)' },
+              '100%': { transform: 'scale(1)' },
+            },
+          },
+          '&::after': {
+            content: '""',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: 'linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent)',
+            animation: 'shine 8s linear infinite',
+            '@keyframes shine': {
+              '0%': { transform: 'translateX(-100%)' },
+              '100%': { transform: 'translateX(100%)' },
+            },
+          },
           color: 'white',
         }}
       >
         <Container maxWidth="lg">
-          <Box sx={{ textAlign: 'center', maxWidth: 800, mx: 'auto' }}>
+          <Box sx={{ textAlign: 'center', maxWidth: 800, mx: 'auto', position: 'relative', zIndex: 1 }}>
             <Typography
               variant="h1"
               sx={{
                 fontWeight: 700,
                 mb: 3,
                 fontSize: { xs: '2.5rem', md: '3.5rem' },
+                textShadow: '0 2px 4px rgba(0,0,0,0.2)',
               }}
             >
               Get in Touch
@@ -162,6 +194,7 @@ const Contact = () => {
               sx={{
                 mb: 4,
                 opacity: 0.9,
+                textShadow: '0 1px 2px rgba(0,0,0,0.1)',
               }}
             >
               Let's discuss how we can help your business grow
@@ -171,12 +204,49 @@ const Contact = () => {
       </Box>
 
       {/* Contact Form */}
-      <Box sx={{ py: { xs: 8, md: 12 } }}>
+      <Box 
+        sx={{ 
+          py: { xs: 8, md: 12 },
+          position: 'relative',
+          overflow: 'hidden',
+          background: 'linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%)',
+          '&::before': {
+            content: '""',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: 'radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1) 0%, transparent 50%)',
+            animation: 'pulse 8s ease-in-out infinite',
+            '@keyframes pulse': {
+              '0%': { transform: 'scale(1)' },
+              '50%': { transform: 'scale(1.2)' },
+              '100%': { transform: 'scale(1)' },
+            },
+          },
+          '&::after': {
+            content: '""',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: 'linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent)',
+            animation: 'shine 8s linear infinite',
+            '@keyframes shine': {
+              '0%': { transform: 'translateX(-100%)' },
+              '100%': { transform: 'translateX(100%)' },
+            },
+          },
+        }}
+      >
         <Container maxWidth="md">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
           >
             <Box
               component="form"
@@ -184,8 +254,18 @@ const Contact = () => {
               sx={{
                 p: 4,
                 borderRadius: 2,
-                boxShadow: 3,
-                bgcolor: 'background.paper',
+                boxShadow: '0 8px 32px rgba(0, 0, 0, 0.2)',
+                background: 'rgba(255, 255, 255, 0.95)',
+                backdropFilter: 'blur(10px)',
+                border: '1px solid',
+                borderColor: 'rgba(255, 255, 255, 0.2)',
+                position: 'relative',
+                zIndex: 1,
+                '&:hover': {
+                  boxShadow: '0 12px 40px rgba(0, 0, 0, 0.3)',
+                  transform: 'translateY(-4px)',
+                  transition: 'all 0.3s ease',
+                },
               }}
             >
               {status.message && (
@@ -315,7 +395,29 @@ const Contact = () => {
       </Box>
 
       {/* Contact Info */}
-      <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: 'background.default' }}>
+      <Box 
+        sx={{ 
+          py: { xs: 8, md: 12 },
+          position: 'relative',
+          overflow: 'hidden',
+          background: 'linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)',
+          '&::before': {
+            content: '""',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: 'radial-gradient(circle at 50% 50%, rgba(255,255,255,0.8) 0%, transparent 50%)',
+            animation: 'pulse 8s ease-in-out infinite',
+            '@keyframes pulse': {
+              '0%': { transform: 'scale(1)' },
+              '50%': { transform: 'scale(1.2)' },
+              '100%': { transform: 'scale(1)' },
+            },
+          },
+        }}
+      >
         <Container maxWidth="lg">
           <Grid container spacing={4}>
             <Grid item xs={12} md={6}>
@@ -323,9 +425,17 @@ const Contact = () => {
                 sx={{ 
                   p: 4,
                   borderRadius: 2,
-                  bgcolor: 'background.paper',
-                  boxShadow: 3,
+                  background: 'rgba(255, 255, 255, 0.9)',
+                  backdropFilter: 'blur(10px)',
+                  border: '1px solid',
+                  borderColor: 'rgba(255, 255, 255, 0.2)',
+                  boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
                   height: '100%',
+                  transition: 'all 0.3s ease',
+                  '&:hover': {
+                    transform: 'translateY(-4px)',
+                    boxShadow: '0 12px 40px rgba(0, 0, 0, 0.15)',
+                  },
                 }}
               >
                 <Typography variant="h5" sx={{ mb: 3, fontWeight: 600 }}>
@@ -361,9 +471,17 @@ const Contact = () => {
                 sx={{ 
                   p: 4,
                   borderRadius: 2,
-                  bgcolor: 'background.paper',
-                  boxShadow: 3,
+                  background: 'rgba(255, 255, 255, 0.9)',
+                  backdropFilter: 'blur(10px)',
+                  border: '1px solid',
+                  borderColor: 'rgba(255, 255, 255, 0.2)',
+                  boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
                   height: '100%',
+                  transition: 'all 0.3s ease',
+                  '&:hover': {
+                    transform: 'translateY(-4px)',
+                    boxShadow: '0 12px 40px rgba(0, 0, 0, 0.15)',
+                  },
                 }}
               >
                 <Typography variant="h5" sx={{ mb: 3, fontWeight: 600 }}>
@@ -399,15 +517,47 @@ const Contact = () => {
       </Box>
 
       {/* Business Hours */}
-      <Box sx={{ py: { xs: 4, md: 6 } }}>
+      <Box 
+        sx={{ 
+          py: { xs: 4, md: 6 },
+          position: 'relative',
+          overflow: 'hidden',
+          background: 'linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%)',
+          '&::before': {
+            content: '""',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: 'radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1) 0%, transparent 50%)',
+            animation: 'pulse 8s ease-in-out infinite',
+            '@keyframes pulse': {
+              '0%': { transform: 'scale(1)' },
+              '50%': { transform: 'scale(1.2)' },
+              '100%': { transform: 'scale(1)' },
+            },
+          },
+        }}
+      >
         <Container maxWidth="md">
           <Box 
             sx={{ 
               p: 4,
               borderRadius: 2,
-              bgcolor: 'background.paper',
-              boxShadow: 3,
+              background: 'rgba(255, 255, 255, 0.95)',
+              backdropFilter: 'blur(10px)',
+              border: '1px solid',
+              borderColor: 'rgba(255, 255, 255, 0.2)',
+              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.2)',
               textAlign: 'center',
+              position: 'relative',
+              zIndex: 1,
+              '&:hover': {
+                boxShadow: '0 12px 40px rgba(0, 0, 0, 0.3)',
+                transform: 'translateY(-4px)',
+                transition: 'all 0.3s ease',
+              },
             }}
           >
             <Typography variant="h5" sx={{ mb: 3, fontWeight: 600 }}>
