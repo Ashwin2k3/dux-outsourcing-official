@@ -111,7 +111,6 @@ const softwareTools = [
   { name: 'Power BI', icon: <TrendingUpIcon sx={{ fontSize: 40 }} />, color: '#F2C811' },
   { name: 'Tableau', icon: <AutoFixHighIcon sx={{ fontSize: 40 }} />, color: '#E97627' },
   { name: 'Zoho', icon: <AccountBalanceIcon sx={{ fontSize: 40 }} />, color: '#FF6B00' },
-  { name: 'Tally', icon: <ReceiptIcon sx={{ fontSize: 40 }} />, color: '#00A0E3' },
 ];
 
 const ServiceCard = ({ service }) => {
@@ -233,7 +232,7 @@ const Home = () => {
                 textShadow: '0 2px 4px rgba(0,0,0,0.1)',
               }}
             >
-              Financial Excellence, Delivered
+              Enhancing Operational Efficiency through Outsourced Accounting Solutions
             </Typography>
             <Typography
               variant="h4"
@@ -243,7 +242,7 @@ const Home = () => {
                 fontSize: { xs: '1.25rem', md: '1.5rem' },
               }}
             >
-              Your trusted partner for comprehensive financial solutions and business growth
+              Your trusted partner for seamless accounting services and sustainable business growth.
             </Typography>
             <Button
               onClick={() => window.scrollTo(0, 0)}
@@ -487,7 +486,7 @@ const Home = () => {
                 textShadow: '0 2px 4px rgba(0,0,0,0.1)',
               }}
             >
-              Financial Services
+              Our Services
             </Typography>
             <Typography
               variant="h6"
@@ -499,7 +498,7 @@ const Home = () => {
                 opacity: 0.9,
               }}
             >
-              Comprehensive financial solutions tailored to your business needs
+              Comprehensive accounting solutions tailored to your business needs.
             </Typography>
           </Box>
 
@@ -528,10 +527,10 @@ const Home = () => {
                   WebkitTextFillColor: 'transparent',
                 }}
               >
-                Trusted by Financial Professionals
+                Trusted by Professionals Across Industries
               </Typography>
               <Typography variant="body1" color="text.secondary" sx={{ mb: 4 }}>
-                Our team of certified professionals ensures the highest standards of financial accuracy and compliance. We're committed to delivering excellence in every aspect of financial management.
+              Our team of certified professionals upholds the highest standards of accuracy and regulatory compliance. We’re dedicated to delivering excellence in every aspect of accounting and business management.
               </Typography>
               <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
                 <Paper
@@ -678,7 +677,7 @@ const Home = () => {
                   textShadow: '0 2px 4px rgba(0,0,0,0.1)',
                 }}
               >
-                Ready to Optimize Your Finances?
+                Ready to streamline your accounting and optimize your business operations?
               </Typography>
               <Typography
                 variant="h6"
@@ -980,7 +979,7 @@ const Home = () => {
                     lineHeight: 1.6,
                   }}
                 >
-                  Discover how we've been transforming financial services with innovation and expertise since our inception.
+                  See how our expertise and innovation have redefined accounting services from the start.
                 </Typography>
                 <Button
                   component={RouterLink}
@@ -1067,7 +1066,7 @@ const Home = () => {
                         mb: 1,
                       }}
                     >
-                      Excellence in Financial Services
+                      Excellence in Outsourcing Services
                     </Typography>
                     <Typography
                       variant="body2"
@@ -1075,7 +1074,7 @@ const Home = () => {
                         color: 'rgba(255,255,255,0.8)',
                       }}
                     >
-                      Trusted by businesses worldwide
+                      Trusted by Professionals Across Industries
                     </Typography>
                   </Box>
                 </Box>

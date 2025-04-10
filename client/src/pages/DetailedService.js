@@ -57,19 +57,19 @@ const services = [
       },
       {
         title: 'Payroll Accounting',
-        description: 'Setting up employee profile in relevant accounting software; Prepare pay slips; pay disbursement, Tax, Superannuation, PF, ESI',
+        description: 'Setting up employee profile in relevant accounting software; Prepare pay slips; pay disbursement, Tax, Superannuation, Single Touch Payroll Reporting (STP)',
         icon: '💰'
       },
-      {
-        title: 'Fixed Assets Accounting',
-        description: 'Initial cost recognition in FAR; Assets tagging; Maintenance of FAR; Physical Verification and impairment analysis',
-        icon: '🏢'
-      },
-      {
-        title: 'Inventory Valuation',
-        description: 'Inventory valuation on periodic basis; Identification of EOQ',
-        icon: '📦'
-      },
+      // {
+      //   title: 'Fixed Assets Accounting',
+      //   description: 'Initial cost recognition in FAR; Assets tagging; Maintenance of FAR; Physical Verification and impairment analysis',
+      //   icon: '🏢'
+      // },
+      // {
+      //   title: 'Inventory Valuation',
+      //   description: 'Inventory valuation on periodic basis; Identification of EOQ',
+      //   icon: '📦'
+      // },
       {
         title: 'Reconciliation',
         description: 'Bank; Debtors; Creditors; General Ledger',

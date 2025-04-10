@@ -582,13 +582,13 @@ const Contact = () => {
                 <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
                   <PhoneIcon sx={{ mr: 2, color: 'primary.main' }} />
                   <Typography variant="body1">
-                    Coming Soon
+                    (08) 8343-5000
                   </Typography>
                 </Box>
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
                   <EmailIcon sx={{ mr: 2, color: 'primary.main' }} />
                   <Typography variant="body1">
-                    laxman.mehra@lsmco.com.au
+                    lsmadmin@lsmco.com.au
                   </Typography>
                 </Box>
               </Box>

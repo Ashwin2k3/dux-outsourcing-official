@@ -38,17 +38,17 @@ const services = [
     tagline: 'Streamline your financial operations with expert accounting solutions'
   },
   {
-    id: 'financial-reporting',
-    title: 'Financial Reporting, Planning, & Analysis',
-    icon: <AnalyticsIcon sx={{ fontSize: 40 }} />,
-    description: 'Comprehensive financial reporting and analysis services to help businesses make informed decisions and achieve their financial goals.',
+    id: 'payroll',
+    title: 'Payroll Compliances',
+    icon: <PaymentsIcon sx={{ fontSize: 40 }} />,
+    description: 'Our Payroll professionals assist our clients in having a smooth payroll run whether weekly, fortnightly or monthly:',
     features: [
-      'Financial Reporting',
-      'Planning & Budgeting',
-      'Analysis & Forecasting',
-      'Financial Modeling'
+      'Employee setup and management',
+      'Leave tracking',
+      'Superannuation processing',
+      'Single Touch Payroll Compliance'
     ],
-    tagline: 'Transform data into actionable business insights'
+    tagline: 'Simplify your payroll management process'
   },
   {
     id: 'bas',
@@ -62,19 +62,6 @@ const services = [
       'Other tax compliances'
     ],
     tagline: 'Ensure compliance with Australian tax regulations'
-  },
-  {
-    id: 'payroll',
-    title: 'Payroll Compliances',
-    icon: <PaymentsIcon sx={{ fontSize: 40 }} />,
-    description: 'Our Payroll professionals assist our clients in having a smooth payroll run whether weekly, fortnightly or monthly:',
-    features: [
-      'Employee setup and management',
-      'Leave tracking',
-      'Superannuation processing',
-      'Single Touch Payroll Compliance'
-    ],
-    tagline: 'Simplify your payroll management process'
   },
   {
     id: 'tax',
@@ -101,6 +88,19 @@ const services = [
       'Compliance documentation'
     ],
     tagline: 'Take control of your superannuation investments'
+  },
+  {
+    id: 'financial-reporting',
+    title: 'Financial Reporting, Planning, & Analysis',
+    icon: <AnalyticsIcon sx={{ fontSize: 40 }} />,
+    description: 'Comprehensive financial reporting and analysis services to help businesses make informed decisions and achieve their financial goals.',
+    features: [
+      'Financial Reporting',
+      'Planning & Budgeting',
+      'Analysis & Forecasting',
+      'Financial Modeling'
+    ],
+    tagline: 'Transform data into actionable business insights'
   },
   {
     id: 'document-automation',

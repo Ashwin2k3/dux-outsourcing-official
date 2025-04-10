@@ -94,7 +94,6 @@ const About = () => {
         { name: 'MYOB Essential', description: 'Comprehensive accounting solution for Australian businesses' },
         { name: 'AccountRight', description: 'Advanced accounting software for growing businesses' },
         { name: 'QuickBooks', description: 'Popular accounting solution for small businesses' },
-        { name: 'Tally Prime', description: 'Complete business management solution' },
       ],
       icon: <Assessment fontSize="large" />,
       color: '#2563eb'
