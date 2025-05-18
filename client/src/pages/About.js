@@ -99,9 +99,9 @@ const About = () => {
   ];
 
   const stats = [
-    { number: '100+', label: 'Professional Clients', icon: <EmojiEvents /> },
-    { number: '25+', label: 'Years Industry Experience', icon: <Timeline /> },
-    { number: '99%', label: 'Client Retention Rate', icon: <Handshake /> },
+    { number: '98%', label: 'Client Retention Rate', icon: <Handshake /> },
+    { number: 'NPS 85', label: 'Net Promoter Score', icon: <TrendingUp /> },
+    { number: '4.9/5', label: 'Client Satisfaction', icon: <EmojiEvents /> },
   ];
 
   const softwareTools = [
