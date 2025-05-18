@@ -17,6 +17,8 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import EmailIcon from '@mui/icons-material/Email';
 import PhoneIcon from '@mui/icons-material/Phone';
 import BusinessIcon from '@mui/icons-material/Business';
+import FlagIcon from '@mui/icons-material/Flag';
+import PublicIcon from '@mui/icons-material/Public';
 
 const Contact = () => {
   const theme = useTheme();
@@ -519,9 +521,12 @@ const Contact = () => {
                   },
                 }}
               >
-                <Typography variant="h5" sx={{ mb: 3, fontWeight: 600 }}>
-                  India Office
-                </Typography>
+                <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
+                  <PublicIcon sx={{ mr: 2, color: '#FF9933' }} />
+                  <Typography variant="h5" sx={{ fontWeight: 600 }}>
+                    India Office
+                  </Typography>
+                </Box>
                 <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
                   <LocationOnIcon sx={{ mr: 2, color: 'primary.main' }} />
                   <Box>
@@ -565,14 +570,17 @@ const Contact = () => {
                   },
                 }}
               >
-                <Typography variant="h5" sx={{ mb: 3, fontWeight: 600 }}>
-                  Australia Office
-                </Typography>
+                <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
+                  <PublicIcon sx={{ mr: 2, color: '#00008B' }} />
+                  <Typography variant="h5" sx={{ fontWeight: 600 }}>
+                    Australia Office
+                  </Typography>
+                </Box>
                 <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
                   <LocationOnIcon sx={{ mr: 2, color: 'primary.main' }} />
                   <Box>
                     <Typography variant="body1" sx={{ fontWeight: 500 }}>
-                    LSM & Co, 186 A Prospect Road, Prospect, Adelaide, SA 5082.
+                      LSM & Co, 186 A Prospect Road, Prospect, Adelaide, SA 5082.
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
                       Australia

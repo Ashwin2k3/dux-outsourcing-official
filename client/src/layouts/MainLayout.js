@@ -116,23 +116,40 @@ const MainLayout = () => {
       <AppBar position="sticky" elevation={0}>
         <Container maxWidth="lg">
           <Toolbar disableGutters>
-            <Typography
-              variant="h6"
+            <Box
               component={RouterLink}
               to="/"
               sx={{
                 flexGrow: 1,
                 textDecoration: 'none',
-                color: theme.palette.text.primary,
-                fontWeight: 700,
-                fontSize: '1.5rem',
-                background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.secondary.main} 100%)`,
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
+                display: 'flex',
+                alignItems: 'center',
+                gap: 2,
               }}
             >
-              Dux Outsourcing 
-            </Typography>
+              <Box
+                component="img"
+                src="/logo192-removebg.png"
+                alt="Dux Outsourcing Logo"
+                sx={{
+                  height: 50,
+                  width: 'auto',
+                }}
+              />
+              <Typography
+                variant="h6"
+                sx={{
+                  fontWeight: 700,
+                  fontSize: '1.5rem',
+                  background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.secondary.main} 100%)`,
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  display: { xs: 'none', sm: 'block' },
+                }}
+              >
+                Dux Outsourcing
+              </Typography>
+            </Box>
 
             {isMobile ? (
               <IconButton
@@ -481,7 +498,7 @@ const MainLayout = () => {
               </List>
             </Grid>
 
-            {/* Newsletter */}
+            {/* Replace Newsletter with Connect With Us */}
             <Grid item xs={12} sm={6} md={3}>
               <Typography 
                 variant="h6" 
@@ -501,7 +518,7 @@ const MainLayout = () => {
                   }
                 }}
               >
-                Get Updates
+                Connect With Us
               </Typography>
               <Typography 
                 variant="body2" 
@@ -511,46 +528,81 @@ const MainLayout = () => {
                   opacity: 0.9,
                 }}
               >
-                Subscribe to our newsletter for the latest updates in accounting and tax services.
+                Stay connected with us for professional insights and updates
               </Typography>
-              <Box 
-                component="form" 
-                sx={{ 
-                  display: 'flex', 
-                  gap: 1,
-                  '& .MuiOutlinedInput-root': {
-                    backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                    color: 'white',
-                    '& fieldset': {
-                      borderColor: 'rgba(255, 255, 255, 0.2)',
-                    },
-                    '&:hover fieldset': {
-                      borderColor: 'rgba(255, 255, 255, 0.4)',
-                    },
-                    '&.Mui-focused fieldset': {
-                      borderColor: 'rgba(255, 255, 255, 0.6)',
-                    },
-                  },
-                }}
-              >
-                <TextField
-                  size="small"
-                  placeholder="Your email"
-                  variant="outlined"
-                  sx={{ flexGrow: 1 }}
-                />
-                <Button 
-                  variant="contained" 
-                  sx={{
-                    backgroundColor: 'rgba(255, 255, 255, 0.2)',
-                    color: 'white',
-                    '&:hover': {
-                      backgroundColor: 'rgba(255, 255, 255, 0.3)',
-                    },
+              <Box sx={{ mb: 3 }}>
+                <Typography 
+                  variant="subtitle2" 
+                  sx={{ 
+                    color: '#e0e7ff',
+                    mb: 1,
+                    fontWeight: 600,
                   }}
                 >
-                  Subscribe
-                </Button>
+                  Business Hours
+                </Typography>
+                <Typography 
+                  variant="body2" 
+                  sx={{ 
+                    color: '#e0e7ff',
+                    opacity: 0.9,
+                    mb: 0.5,
+                  }}
+                >
+                  Monday to Friday
+                </Typography>
+                <Typography 
+                  variant="body2" 
+                  sx={{ 
+                    color: '#e0e7ff',
+                    opacity: 0.9,
+                    mb: 2,
+                  }}
+                >
+                  9:00 AM to 5:00 PM AEST
+                </Typography>
+                <Typography 
+                  variant="subtitle2" 
+                  sx={{ 
+                    color: '#e0e7ff',
+                    mb: 1,
+                    fontWeight: 600,
+                  }}
+                >
+                  Follow Us
+                </Typography>
+                <Box sx={{ display: 'flex', gap: 2 }}>
+                  <Button
+                    component="a"
+                    href="https://www.linkedin.com/company/dux-outsourcing"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    sx={{
+                      color: '#e0e7ff',
+                      border: '1px solid rgba(255, 255, 255, 0.2)',
+                      '&:hover': {
+                        backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                        borderColor: 'rgba(255, 255, 255, 0.4)',
+                      },
+                    }}
+                  >
+                    LinkedIn
+                  </Button>
+                  <Button
+                    component="a"
+                    href="mailto:duxoutsourcing@gmail.com"
+                    sx={{
+                      color: '#e0e7ff',
+                      border: '1px solid rgba(255, 255, 255, 0.2)',
+                      '&:hover': {
+                        backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                        borderColor: 'rgba(255, 255, 255, 0.4)',
+                      },
+                    }}
+                  >
+                    Email
+                  </Button>
+                </Box>
               </Box>
             </Grid>
           </Grid>

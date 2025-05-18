@@ -38,22 +38,40 @@ const About = () => {
   const values = [
     {
       icon: <Security fontSize="large" />,
-      title: 'Data Security',
-      description: 'We implement enterprise-grade security measures to protect your sensitive business data.',
+      title: 'Professional Excellence',
+      description: 'We maintain the highest standards of professional service delivery, ensuring accuracy, compliance, and excellence in all our accounting and financial services.',
       color: theme.palette.primary.main,
     },
     {
-      icon: <Support fontSize="large" />,
-      title: '24/7 Support',
-      description: 'Round-the-clock support team to address your queries and concerns.',
+      icon: <Handshake fontSize="large" />,
+      title: 'Client Partnership',
+      description: 'We foster long-term professional relationships built on trust, transparency, and mutual success, working collaboratively to achieve our clients\' strategic objectives.',
       color: theme.palette.secondary.main,
     },
     {
-      icon: <Timeline fontSize="large" />,
-      title: 'Scalable Solutions',
-      description: 'Flexible services that grow with your business needs.',
+      icon: <TrendingUp fontSize="large" />,
+      title: 'Innovation & Efficiency',
+      description: 'We continuously enhance our service delivery through technological innovation and process optimisation, delivering greater value and efficiency to our clients.',
       color: theme.palette.success.main,
     },
+    {
+      icon: <People fontSize="large" />,
+      title: 'Integrity & Ethics',
+      description: 'We uphold the highest ethical standards in all our professional dealings, ensuring compliance with Australian regulatory requirements and maintaining client confidentiality.',
+      color: theme.palette.info.main,
+    },
+    {
+      icon: <Timeline fontSize="large" />,
+      title: 'Sustainable Growth',
+      description: 'We are committed to sustainable business practices that support long-term client success while maintaining the highest standards of corporate responsibility.',
+      color: theme.palette.warning.main,
+    },
+    {
+      icon: <Dashboard fontSize="large" />,
+      title: 'Operational Excellence',
+      description: 'We maintain rigorous quality control and continuous improvement processes to ensure consistent, reliable, and efficient service delivery across all operations.',
+      color: theme.palette.error.main,
+    }
   ];
 
   const team = [
@@ -61,29 +79,29 @@ const About = () => {
       name: 'Manish Gupta',
       role: 'Promoter & Director',
       image: '/team/manish.jpg',
-      description: 'Manish is a Chartered Accountant with +23 years of work experience in finance domain. He has worked in many Indian and Multinational pioneered companies in IT and Telecom sector, to name few, he has worked in Infosys, Steria, British Telecom, Hewlett Packard. He has performed global roles in finance and handled ~$50m to ~$1.3b P&L size during his tenure. He is an expert in business planning, financial controls, commercial management, change management, operation finance, pricing, project management, accounting, management reporting, delivery cost reduction, and P&L management.',
-      expertise: ['Business Planning', 'Financial Controls', 'Commercial Management', 'P&L Management'],
+      description: 'Mr Gupta is a qualified Chartered Accountant with over 23 years of professional experience in the financial services sector. His distinguished career includes executive positions with leading multinational corporations in the Information Technology and Telecommunications sectors, including Infosys, Steria, British Telecom, and Hewlett Packard. During his tenure, he has managed Profit & Loss portfolios ranging from AUD 78 million to AUD 2.02 billion. His expertise encompasses strategic business planning, financial controls, commercial management, organisational transformation, operational finance, pricing strategy, project management, financial reporting, cost optimisation, and comprehensive P&L management.',
+      expertise: ['Strategic Business Planning', 'Financial Controls', 'Commercial Management', 'P&L Management'],
     },
     {
       name: 'Neeru Gupta',
       role: 'Promoter & Director',
       image: '/team/neeru.jpg',
-      description: 'Neeru is a finance professional with an excellent academic record and a rank holder in Chartered Accountancy exam. She possesses +23 years of work experience in finance including regulatory compliances. She has worked for many reputed Indian companies in logistics, food processing, real estate, and packaging industries. She is an expert in statutory audits, internal audit, tax audit, company law compliances, tax assessment cases, financial capital restructuring, short term or long term financial arrangement from banks, audit of cooperative societies.',
-      expertise: ['Statutory Audits', 'Tax Compliance', 'Financial Restructuring', 'Regulatory Affairs'],
+      description: 'Ms Gupta is a distinguished finance professional with exceptional academic achievements, including distinction in the Chartered Accountancy examination. With over 23 years of professional experience in financial services and regulatory compliance, she has served in executive capacities with prominent Australian organisations across the logistics, food processing, real estate, and packaging sectors. Her expertise encompasses statutory auditing, internal audit management, taxation compliance, corporate governance, taxation assessment proceedings, financial restructuring, banking relationships, and cooperative society audits.',
+      expertise: ['Statutory Auditing', 'Taxation Compliance', 'Financial Restructuring', 'Regulatory Affairs'],
     },
     {
       name: 'Laxman Singh Mehra',
       role: 'Australia Business Advisor',
       image: '/team/laxman.jpg',
-      description: 'Laxman is our esteemed Australia Business Advisor based in Adelaide. With extensive experience in the Australian market, he provides strategic guidance and local expertise to help businesses navigate the Australian business landscape. His deep understanding of Australian regulations, market dynamics, and business practices makes him an invaluable asset to our team and clients.',
-      expertise: ['Australian Market', 'Business Strategy', 'Regulatory Compliance', 'Market Entry'],
+      description: 'Mr Mehra serves as our esteemed Australia Business Advisor, based in Adelaide. With extensive experience in the Australian market, he provides strategic counsel and local expertise to facilitate successful business operations within the Australian business environment. His comprehensive understanding of Australian regulatory frameworks, market dynamics, and business practices positions him as an invaluable strategic partner for our organisation and clients.',
+      expertise: ['Australian Market Strategy', 'Business Advisory', 'Regulatory Compliance', 'Market Entry Strategy'],
     }
   ];
 
   const stats = [
-    { number: '100+', label: 'Clients', icon: <EmojiEvents /> },
-    { number: '25+', label: 'Industry Experience', icon: <Timeline /> },
-    { number: '99%', label: 'Client Retention', icon: <Handshake /> },
+    { number: '100+', label: 'Professional Clients', icon: <EmojiEvents /> },
+    { number: '25+', label: 'Years Industry Experience', icon: <Timeline /> },
+    { number: '99%', label: 'Client Retention Rate', icon: <Handshake /> },
   ];
 
   const softwareTools = [
@@ -96,7 +114,7 @@ const About = () => {
         { name: 'QuickBooks', description: 'Popular accounting solution for small businesses' },
       ],
       icon: <Assessment fontSize="large" />,
-      color: '#2563eb'
+      color: '#0EA5E9'
     },
     {
       category: 'Enterprise Solutions',
@@ -106,7 +124,7 @@ const About = () => {
         { name: 'Zoho', description: 'Integrated suite of business applications' },
       ],
       icon: <Business fontSize="large" />,
-      color: '#7c3aed'
+      color: '#6366F1'
     },
     {
       category: 'Business Intelligence',
@@ -116,7 +134,7 @@ const About = () => {
         { name: 'Qlik', description: 'End-to-end data integration and analytics' },
       ],
       icon: <Analytics fontSize="large" />,
-      color: '#059669'
+      color: '#8B5CF6'
     },
     {
       category: 'Cloud & Security',
@@ -126,7 +144,7 @@ const About = () => {
         { name: 'Google Cloud', description: 'Enterprise-grade cloud platform' },
       ],
       icon: <Cloud fontSize="large" />,
-      color: '#dc2626'
+      color: '#0F766E'
     }
   ];
 
@@ -203,7 +221,7 @@ const About = () => {
                     color: theme.palette.primary.main,
                   }}
                 >
-                  Our Mission
+                  Our Professional Mission
                 </Typography>
                 <Typography 
                   paragraph
@@ -213,7 +231,7 @@ const About = () => {
                     color: theme.palette.text.secondary,
                   }}
                 >
-                  At Dux Outsourcing, we're dedicated to helping businesses streamline their operations through efficient outsourcing solutions. Our mission is to provide reliable, cost-effective services that enable our clients to focus on their core business objectives.
+                  At Dux Outsourcing, we are committed to enhancing organisational efficiency through professional outsourcing solutions. Our mission is to deliver reliable, cost-effective services that enable our clients to focus on their core business objectives while maintaining the highest standards of compliance and service delivery.
                 </Typography>
                 <Typography 
                   paragraph
@@ -223,7 +241,7 @@ const About = () => {
                     color: theme.palette.text.secondary,
                   }}
                 >
-                  We believe in building long-term partnerships with our clients, understanding their unique needs, and delivering customized solutions that drive growth and efficiency.
+                  We establish long-term professional partnerships with our clients, understanding their unique requirements, and delivering tailored solutions that drive sustainable growth and operational excellence.
                 </Typography>
               </motion.div>
             </Grid>
@@ -335,7 +353,7 @@ const About = () => {
                   zIndex: 1,
                 }}
               >
-                Meet Our Board of Directors & Advisor
+                Executive Leadership Team
               </Typography>
               <Typography
                 variant="h6"
@@ -350,7 +368,7 @@ const About = () => {
                   zIndex: 1,
                 }}
               >
-                Meet the visionary leaders who guide our company's success and innovation
+                Meet our distinguished executive leadership team, driving innovation and excellence in professional services
               </Typography>
               <Box
                 sx={{
@@ -507,7 +525,7 @@ const About = () => {
               color: theme.palette.primary.main,
             }}
           >
-            Our Core Values
+            Our Organisational Values
           </Typography>
           <Grid container spacing={4}>
             {values.map((value, index) => (
@@ -596,12 +614,13 @@ const About = () => {
                       height: '100%',
                       p: 3,
                       borderRadius: 2,
-                      background: `linear-gradient(135deg, ${category.color}15 0%, ${theme.palette.background.paper} 100%)`,
-                      border: `1px solid ${category.color}30`,
+                      background: `linear-gradient(135deg, ${category.color}08 0%, ${theme.palette.background.paper} 100%)`,
+                      border: `1px solid ${category.color}20`,
                       transition: 'all 0.3s ease',
                       '&:hover': {
                         transform: 'translateY(-4px)',
-                        boxShadow: 3,
+                        boxShadow: `0 8px 24px ${category.color}15`,
+                        borderColor: `${category.color}40`,
                       },
                     }}
                   >
@@ -619,6 +638,9 @@ const About = () => {
                           p: 1.5,
                           borderRadius: '50%',
                           bgcolor: `${category.color}15`,
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
                         }}
                       >
                         {category.icon}
@@ -645,11 +667,12 @@ const About = () => {
                             borderRadius: 1,
                             bgcolor: 'background.paper',
                             border: '1px solid',
-                            borderColor: 'divider',
+                            borderColor: `${category.color}20`,
                             transition: 'all 0.2s ease',
                             '&:hover': {
-                              bgcolor: `${category.color}10`,
+                              bgcolor: `${category.color}08`,
                               borderColor: category.color,
+                              transform: 'translateX(4px)',
                             },
                           }}
                         >
@@ -666,6 +689,10 @@ const About = () => {
                           <Typography
                             variant="body2"
                             color="text.secondary"
+                            sx={{
+                              fontSize: '0.9rem',
+                              lineHeight: 1.6,
+                            }}
                           >
                             {tool.description}
                           </Typography>
@@ -779,7 +806,7 @@ const About = () => {
                   color: theme.palette.primary.main,
                 }}
               >
-                Ready to Transform Your Business?
+                Ready to Enhance Your Business Operations?
               </Typography>
               <Typography 
                 paragraph 
@@ -789,7 +816,7 @@ const About = () => {
                   color: theme.palette.text.secondary,
                 }}
               >
-                Let's discuss how our outsourcing solutions can help your business grow and succeed.
+                Let's discuss how our professional outsourcing solutions can support your organisation's growth and operational objectives.
               </Typography>
               <Box
                 component="a"
@@ -811,7 +838,7 @@ const About = () => {
                   },
                 }}
               >
-                Get Started
+                Commence Professional Consultation
               </Box>
             </Paper>
           </motion.div>

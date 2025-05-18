@@ -28,92 +28,92 @@ const services = [
     id: 'accounting',
     title: 'Accounting Solutions',
     icon: <AccountBalanceIcon sx={{ fontSize: 40 }} />,
-    description: 'Our expert accountants help CA firms and businesses by taking care of their end-to-end accounting requirements. Our experts\' jurisdiction extends to but is not limited to:',
+    description: 'Our qualified accounting professionals provide comprehensive end-to-end accounting services for chartered accounting firms and businesses. Our expertise encompasses:',
     features: [
-      'Transaction processing',
-      'Managing receivables and payables',
-      'Ledger and bank reconciliation',
-      'Data preparation for payroll and BAS Returns'
+      'Transaction processing and reconciliation',
+      'Accounts receivable and payable management',
+      'General ledger and bank reconciliation',
+      'Financial data preparation for payroll and Business Activity Statements'
     ],
-    tagline: 'Streamline your financial operations with expert accounting solutions'
+    tagline: 'Enhance your financial operations through professional accounting solutions'
   },
   {
     id: 'payroll',
-    title: 'Payroll Compliances',
+    title: 'Payroll Compliance',
     icon: <PaymentsIcon sx={{ fontSize: 40 }} />,
-    description: 'Our Payroll professionals assist our clients in having a smooth payroll run whether weekly, fortnightly or monthly:',
+    description: 'Our payroll specialists deliver comprehensive payroll management services, ensuring compliance with Australian regulatory requirements:',
     features: [
-      'Employee setup and management',
-      'Leave tracking',
-      'Superannuation processing',
-      'Single Touch Payroll Compliance'
+      'Employee onboarding and management',
+      'Leave entitlement tracking and management',
+      'Superannuation processing and compliance',
+      'Single Touch Payroll (STP) reporting and compliance'
     ],
-    tagline: 'Simplify your payroll management process'
+    tagline: 'Optimise your payroll management through professional compliance solutions'
   },
   {
     id: 'bas',
     title: 'BAS Returns',
     icon: <ReceiptIcon sx={{ fontSize: 40 }} />,
-    description: 'We have hands-on experience in preparing Business Activity Statements (BAS) and also assist businesses in managing their statutory compliances:',
+    description: 'Our taxation specialists provide expert management of Business Activity Statements and related compliance requirements:',
     features: [
-      'GST management',
-      'PayG processing',
-      'PayG withholding',
-      'Other tax compliances'
+      'Goods and Services Tax (GST) reporting',
+      'Pay As You Go (PAYG) processing',
+      'Fringe Benefits Tax (FBT) reporting',
+      'Australian Taxation Office (ATO) compliance'
     ],
-    tagline: 'Ensure compliance with Australian tax regulations'
+    tagline: 'Ensure regulatory compliance through professional BAS management'
   },
   {
     id: 'tax',
     title: 'Tax Returns',
     icon: <CalculateIcon sx={{ fontSize: 40 }} />,
-    description: 'Our expert Tax Professionals assist you in finalizing your financial statements and preparing your income and corporate tax returns:',
+    description: 'Our taxation professionals deliver comprehensive tax preparation and lodgement services in accordance with Australian taxation legislation:',
     features: [
-      'Financial statement finalization',
-      'Income tax preparation',
-      'Corporate tax returns',
-      'Tax planning and optimization'
+      'Business tax return preparation',
+      'Individual tax return lodgement',
+      'Tax planning and advisory services',
+      'ATO compliance and reporting'
     ],
-    tagline: 'Maximize your tax benefits with expert guidance'
+    tagline: 'Navigate Australian taxation requirements with professional expertise'
   },
   {
     id: 'smsf',
     title: 'SMSF Compliance',
     icon: <AccountTreeIcon sx={{ fontSize: 40 }} />,
-    description: 'Our SMSF or Self-Managed Super Fund service is exclusively curated for individuals looking to invest and manage their own super funds:',
+    description: 'Our SMSF specialists provide comprehensive compliance management for Self-Managed Super Funds:',
     features: [
-      'SMSF accounting',
+      'SMSF compliance and reporting',
       'Financial statement preparation',
-      'Tax return lodgment',
-      'Compliance documentation'
+      'Tax return lodgement',
+      'Regulatory compliance management'
     ],
-    tagline: 'Take control of your superannuation investments'
+    tagline: 'Maintain SMSF compliance through professional fund management'
   },
   {
     id: 'financial-reporting',
-    title: 'Financial Reporting, Planning, & Analysis',
+    title: 'Financial Reporting',
     icon: <AnalyticsIcon sx={{ fontSize: 40 }} />,
-    description: 'Comprehensive financial reporting and analysis services to help businesses make informed decisions and achieve their financial goals.',
+    description: 'Our financial reporting specialists deliver comprehensive analysis and reporting services to support informed business decisions:',
     features: [
-      'Financial Reporting',
-      'Planning & Budgeting',
-      'Analysis & Forecasting',
-      'Financial Modeling'
+      'Financial statement preparation',
+      'Management reporting',
+      'Business performance analysis',
+      'Strategic financial planning'
     ],
-    tagline: 'Transform data into actionable business insights'
+    tagline: 'Enhance business performance through professional financial reporting'
   },
   {
     id: 'document-automation',
-    title: 'Document and Data Automation',
+    title: 'Document Automation',
     icon: <AutoFixHighIcon sx={{ fontSize: 40 }} />,
-    description: 'Advanced AI-powered document processing and data automation solutions to streamline your financial operations.',
+    description: 'Our document automation specialists implement advanced solutions to enhance operational efficiency:',
     features: [
-      'Invoice Data Extraction',
-      'Bank Statement Processing',
-      'AI-Powered Analytics',
-      'Automated Form Filling'
+      'Document processing automation',
+      'Workflow optimisation',
+      'Digital transformation solutions',
+      'Process efficiency enhancement'
     ],
-    tagline: 'Leverage AI to automate your document processing'
+    tagline: 'Transform business operations through professional automation solutions'
   }
 ];
 

@@ -23,61 +23,61 @@ import { motion } from 'framer-motion';
 
 const pricingPlans = [
   {
-    name: 'Full Time',
-    price: 'AUD 1,800 To 3,500',
-    description: 'Per Month Pricing, Perfect for businesses requiring dedicated full-time support',
+    name: 'Full-Time Professional',
+    price: 'AUD 1,800 - 3,500',
+    description: 'Monthly investment for organisations requiring dedicated professional support and comprehensive service delivery',
     features: [
-      'Full-time dedicated resource',
-      '40 hours per week',
-      'Comprehensive accounting services',
-      'Priority support',
-      'Email / Call support',
-      'Monthly financial reports',
-      'Financial analysis',
-      'Custom reporting',
-      'GST compliance',
-      'Strategic planning',
-      'Payroll processing',
-      'Dedicated account manager',
-      'Regular check-ins',
+      'Dedicated professional resource',
+      '40 hours per week commitment',
+      'Comprehensive accounting and taxation services',
+      'Priority professional support',
+      'Direct communication channels',
+      'Monthly financial performance reports',
+      'Strategic financial analysis',
+      'Customised reporting solutions',
+      'Goods and Services Tax (GST) compliance',
+      'Strategic business planning',
+      'Professional payroll management',
+      'Dedicated account relationship manager',
+      'Regular performance reviews',
     ],
     color: 'primary.light',
     popular: false,
   },
   {
-    name: 'Part Time',
-    price: 'AUD 900 To 1,750',
-    description: 'Per Month Pricing, Ideal for growing businesses needing part-time support',
+    name: 'Part-Time Professional',
+    price: 'AUD 900 - 1,750',
+    description: 'Monthly investment for organisations requiring professional support on a part-time basis',
     features: [
-      'Part-time dedicated resource',
-      '20 hours per week',
-      'Basic accounting services',
-      'Email / Call support',
-      'Monthly financial reports',
-      'Transaction processing',
-      'Basic bookkeeping',
-      'GST compliance',
-      'Payroll processing',
-      'Regular check-ins',
+      'Dedicated professional resource',
+      '20 hours per week commitment',
+      'Essential accounting services',
+      'Professional support channels',
+      'Monthly financial performance reports',
+      'Transaction processing and reconciliation',
+      'Professional bookkeeping services',
+      'Goods and Services Tax (GST) compliance',
+      'Payroll management services',
+      'Regular performance reviews',
     ],
     color: 'primary.main',
     popular: true,
   },
   {
-    name: 'Casual',
-    price: 'AUD 12/hr To 18/hr',
-    description: 'Flexible support for ad-hoc requirements',
+    name: 'Professional Consultation',
+    price: 'AUD 12 - 18 per hour',
+    description: 'Flexible professional services for ad-hoc organisational requirements',
     features: [
-      'Pay-as-you-go model',
-      'Flexible hours',
-      'Basic accounting services',
-      'Email / Call support',
-      'Transaction processing',
-      'Basic bookkeeping',
-      'GST compliance',
-      'Payroll processing',
-      'On-demand support',
-      'Hourly billing',
+      'Pay-as-you-go professional service model',
+      'Flexible engagement hours',
+      'Essential accounting services',
+      'Professional support channels',
+      'Transaction processing and reconciliation',
+      'Professional bookkeeping services',
+      'Goods and Services Tax (GST) compliance',
+      'Payroll management services',
+      'On-demand professional support',
+      'Hourly professional service billing',
     ],
     color: 'secondary.main',
     popular: false,
@@ -233,8 +233,8 @@ const PricingCard = ({ plan }) => {
               })
             }}
           >
-            {plan.name === 'Full Time' ? 'Hire Full Time Expert' : 
-             plan.name === 'Part Time' ? 'Hire Part Time Expert' : 
+            {plan.name === 'Full-Time Professional' ? 'Hire Full-Time Professional Expert' : 
+             plan.name === 'Part-Time Professional' ? 'Hire Part-Time Professional Expert' : 
              'Book Consultation'}
           </Button>
           <Box sx={{ mt: 2, textAlign: 'center' }}>
@@ -258,8 +258,8 @@ const PricingCard = ({ plan }) => {
                 mt: 0.5,
               }}
             >
-              {plan.name === 'Full Time' ? 'Minimum 3 months commitment; software cost Exclusive' : 
-               plan.name === 'Part Time' ? 'Minimum 2 months commitment; software cost Exclusive' : 
+              {plan.name === 'Full-Time Professional' ? 'Minimum 3 months commitment; software cost Exclusive' : 
+               plan.name === 'Part-Time Professional' ? 'Minimum 2 months commitment; software cost Exclusive' : 
                'Minimum 10 hours per booking; software cost Exclusive'}
             </Typography>
           </Box>
@@ -292,7 +292,7 @@ const Pricing = () => {
                 fontSize: { xs: '2.5rem', md: '3.5rem' },
               }}
             >
-              Simple, Transparent Pricing
+              Professional Service Packages
             </Typography>
             <Typography
               variant="h5"
@@ -301,7 +301,7 @@ const Pricing = () => {
                 opacity: 0.9,
               }}
             >
-              Choose the perfect plan for your business needs. All plans include dedicated support and regular reporting.
+              Select a professional service package tailored to your organisation's requirements. All packages include dedicated professional support and comprehensive reporting capabilities.
             </Typography>
           </Box>
         </Container>
@@ -394,40 +394,40 @@ const Pricing = () => {
             <Grid item xs={12} md={6}>
               <Box sx={{ mb: 4 }}>
                 <Typography variant="h6" sx={{ mb: 2 }}>
-                  How does the hourly pricing work?
+                  How is the professional service hourly rate calculated?
                 </Typography>
                 <Typography color="text.secondary">
-                  Our hourly pricing is based on the actual time spent on your tasks. We track time accurately and provide detailed reports of work completed.
+                  Our professional service hourly rates are calculated based on the actual time dedicated to your organisation's requirements. We maintain detailed time records and provide comprehensive reports of professional services rendered.
                 </Typography>
               </Box>
             </Grid>
             <Grid item xs={12} md={6}>
               <Box sx={{ mb: 4 }}>
                 <Typography variant="h6" sx={{ mb: 2 }}>
-                  Can I upgrade or downgrade my plan?
+                  Can we modify our professional service package?
                 </Typography>
                 <Typography color="text.secondary">
-                  Yes, you can change your plan at any time. Upgrades take effect immediately, while downgrades apply at the start of your next billing cycle.
+                  Yes, organisations may adjust their professional service package at any time. Upgrades to service packages take effect immediately, while modifications to lower-tier packages apply at the commencement of the next billing cycle.
                 </Typography>
               </Box>
             </Grid>
             <Grid item xs={12} md={6}>
               <Box sx={{ mb: 4 }}>
                 <Typography variant="h6" sx={{ mb: 2 }}>
-                  What payment methods do you accept?
+                  What payment methods are available for professional services?
                 </Typography>
                 <Typography color="text.secondary">
-                  We accept all major cards, bank transfers, and PayPal. Enterprise clients can also set up custom payment terms.
+                  We accept all major credit cards, electronic funds transfer, and PayPal for professional service payments. Enterprise clients may establish customised payment arrangements.
                 </Typography>
               </Box>
             </Grid>
             <Grid item xs={12} md={6}>
               <Box sx={{ mb: 4 }}>
                 <Typography variant="h6" sx={{ mb: 2 }}>
-                  Is there a minimum commitment?
+                  What are the minimum engagement terms?
                 </Typography>
                 <Typography color="text.secondary">
-                  Yes, Refer to the terms and conditions for each plan.
+                  Please refer to the terms and conditions specific to each professional service package for minimum engagement requirements.
                 </Typography>
               </Box>
             </Grid>
@@ -449,17 +449,16 @@ const Pricing = () => {
               variant="h2"
               sx={{ mb: 4, fontWeight: 700 }}
             >
-              Ready to Get Started?
+              Commence Professional Consultation
             </Typography>
             <Typography
               variant="h6"
               sx={{ mb: 6, opacity: 0.9 }}
             >
-              Contact us today to discuss your specific needs and get a custom quote
+              Contact our professional team to discuss your organisation's specific requirements and obtain a customised quotation
             </Typography>
             <Button
               variant="contained"
-              color="secondary"
               size="large"
               component={RouterLink}
               to="/contact"
@@ -469,14 +468,21 @@ const Pricing = () => {
                 borderRadius: '50px',
                 textTransform: 'none',
                 fontSize: '1.1rem',
-                backgroundColor: 'white',
-                color: 'primary.main',
+                backgroundColor: '#f8fafc',
+                color: '#f8fafc',
+                fontWeight: 600,
+                boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+                border: '1px solid',
+                borderColor: 'rgba(255, 255, 255, 0.2)',
                 '&:hover': {
-                  backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                  backgroundColor: '#f1f5f9',
+                  boxShadow: '0 6px 16px rgba(0,0,0,0.2)',
+                  transform: 'translateY(-2px)',
                 },
+                transition: 'all 0.3s ease',
               }}
             >
-              Contact Us
+              Schedule Professional Consultation
             </Button>
           </Box>
         </Container>

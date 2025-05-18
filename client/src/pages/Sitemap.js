@@ -16,17 +16,17 @@ const Sitemap = () => {
 
   const mainPages = [
     { name: 'Home', path: '/' },
-    { name: 'Services', path: '/services' },
-    { name: 'About', path: '/about' },
-    { name: 'Pricing', path: '/pricing' },
-    { name: 'Contact', path: '/contact' },
+    { name: 'Professional Services', path: '/services' },
+    { name: 'About Our Organisation', path: '/about' },
+    { name: 'Service Packages', path: '/pricing' },
+    { name: 'Professional Consultation', path: '/contact' },
   ];
 
   const servicePages = [
     { name: 'Accounting Solutions', path: '/services#accounting' },
-    { name: 'BAS Returns', path: '/services#bas' },
-    { name: 'Payroll Compliances', path: '/services#payroll' },
-    { name: 'Tax Returns', path: '/services#tax' },
+    { name: 'Business Activity Statements', path: '/services#bas' },
+    { name: 'Payroll Compliance', path: '/services#payroll' },
+    { name: 'Taxation Services', path: '/services#tax' },
     { name: 'SMSF Compliance', path: '/services#smsf' },
   ];
 
@@ -80,7 +80,7 @@ const Sitemap = () => {
           >
             <Box sx={{ mb: 6 }}>
               <Typography variant="h4" sx={{ mb: 3 }}>
-                Main Pages
+                Primary Navigation
               </Typography>
               <List>
                 {mainPages.map((page) => (
@@ -104,7 +104,7 @@ const Sitemap = () => {
 
             <Box sx={{ mb: 6 }}>
               <Typography variant="h4" sx={{ mb: 3 }}>
-                Services
+                Professional Services
               </Typography>
               <List>
                 {servicePages.map((page) => (
@@ -128,7 +128,7 @@ const Sitemap = () => {
 
             <Box sx={{ mb: 6 }}>
               <Typography variant="h4" sx={{ mb: 3 }}>
-                Legal
+                Legal Documentation
               </Typography>
               <List>
                 {legalPages.map((page) => (
@@ -152,16 +152,16 @@ const Sitemap = () => {
 
             <Box sx={{ mb: 6 }}>
               <Typography variant="h4" sx={{ mb: 3 }}>
-                Contact Information
+                Professional Contact Information
               </Typography>
               <Typography paragraph>
-                Email: info@duxoutsourcing.com
+                Professional Enquiries: info@duxoutsourcing.com
               </Typography>
               <Typography paragraph>
-                Phone: +1 (555) 123-4567
+                Business Hours: Monday to Friday, 9:00 AM to 5:00 PM AEST
               </Typography>
               <Typography paragraph>
-                Address: 123 Business Street, Suite 100, City, State 12345
+                Registered Office: Level 1, 123 Business Street, Melbourne VIC 3000, Australia
               </Typography>
             </Box>
           </motion.div>

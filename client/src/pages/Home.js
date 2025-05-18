@@ -30,49 +30,49 @@ const services = [
   {
     title: 'Accounting Solutions',
     icon: <AccountBalanceIcon sx={{ fontSize: 40 }} />,
-    description: 'End-to-end accounting services for businesses and CA firms, including transaction processing and financial management.',
+    description: 'End-to-end accounting services for businesses and chartered accounting firms, including transaction processing and financial management solutions.',
     path: '/services#accounting',
     color: '#2563eb'
   },
   {
     title: 'Financial Reporting',
     icon: <AnalyticsIcon sx={{ fontSize: 40 }} />,
-    description: 'Comprehensive financial reporting and analysis services to help businesses make informed decisions and achieve their financial goals.',
+    description: 'Comprehensive financial reporting and analysis services to support informed business decisions and strategic financial objectives.',
     path: '/services#financial-reporting',
     color: '#7c3aed'
   },
   {
     title: 'BAS Returns',
     icon: <ReceiptIcon sx={{ fontSize: 40 }} />,
-    description: 'Expert handling of Business Activity Statements, GST, PayG, and other tax compliances.',
+    description: 'Expert management of Business Activity Statements, Goods and Services Tax (GST), Pay As You Go (PAYG), and other taxation compliance requirements.',
     path: '/services#bas',
     color: '#059669'
   },
   {
-    title: 'Payroll Compliances',
+    title: 'Payroll Compliance',
     icon: <PaymentsIcon sx={{ fontSize: 40 }} />,
-    description: 'Comprehensive payroll management solutions with Single Touch Payroll Compliance.',
+    description: 'Comprehensive payroll management solutions with Single Touch Payroll (STP) compliance and reporting capabilities.',
     path: '/services#payroll',
     color: '#dc2626'
   },
   {
     title: 'Tax Returns',
     icon: <CalculateIcon sx={{ fontSize: 40 }} />,
-    description: 'Professional tax preparation and filing services for individuals and businesses.',
+    description: 'Professional tax preparation and lodgement services for businesses and individuals, ensuring compliance with Australian Taxation Office requirements.',
     path: '/services#tax',
     color: '#9333ea'
   },
   {
     title: 'SMSF Compliance',
     icon: <AccountTreeIcon sx={{ fontSize: 40 }} />,
-    description: 'Specialized Self-Managed Super Fund services with complete compliance management.',
+    description: 'Specialised Self-Managed Super Fund services with comprehensive compliance management and regulatory reporting.',
     path: '/services#smsf',
     color: '#2563eb'
   },
   {
     title: 'Document Automation',
     icon: <AutoFixHighIcon sx={{ fontSize: 40 }} />,
-    description: 'AI-powered document processing and automation solutions to streamline your business operations.',
+    description: 'Advanced document processing and automation solutions to enhance operational efficiency and streamline business processes.',
     path: '/services#document-automation',
     color: '#7c3aed'
   }
@@ -80,23 +80,23 @@ const services = [
 
 const financialStats = [
   {
-    value: '100+',
-    label: 'Active Clients',
+    value: '98%',
+    label: 'Client Retention Rate',
     icon: <VerifiedUserIcon sx={{ fontSize: 40, color: 'primary.main' }} />,
   },
   {
-    value: '24/7',
-    label: 'Support',
-    icon: <SecurityIcon sx={{ fontSize: 40, color: 'primary.main' }} />,
-  },
-  {
-    value: '99.9%',
-    label: 'Accuracy',
+    value: 'NPS 85',
+    label: 'Net Promoter Score',
     icon: <TrendingUpIcon sx={{ fontSize: 40, color: 'primary.main' }} />,
   },
   {
-    value: '50%',
-    label: 'Cost Savings',
+    value: '4.9/5',
+    label: 'Client Satisfaction',
+    icon: <SecurityIcon sx={{ fontSize: 40, color: 'primary.main' }} />,
+  },
+  {
+    value: '35%',
+    label: 'Average Efficiency Gain',
     icon: <SpeedIcon sx={{ fontSize: 40, color: 'primary.main' }} />,
   },
 ];
@@ -123,6 +123,9 @@ const ServiceCard = ({ service }) => {
       transition={{ type: "spring", stiffness: 300 }}
     >
       <Card 
+        component={RouterLink}
+        to={service.path}
+        onClick={() => window.scrollTo(0, 0)}
         sx={{ 
           height: '100%',
           display: 'flex',
@@ -130,9 +133,16 @@ const ServiceCard = ({ service }) => {
           background: `linear-gradient(135deg, ${service.color} 0%, ${theme.palette.background.paper} 100%)`,
           position: 'relative',
           overflow: 'hidden',
+          textDecoration: 'none',
+          cursor: 'pointer',
           '&:hover': {
             '& .service-icon': {
               transform: 'scale(1.1) rotate(5deg)',
+            },
+            '& .learn-more-button': {
+              backgroundColor: 'white',
+              transform: 'translateY(-2px)',
+              boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
             },
           },
         }}
@@ -165,29 +175,38 @@ const ServiceCard = ({ service }) => {
           >
             {service.description}
           </Typography>
-          <Button
-            component={RouterLink}
-            to={service.path}
-            onClick={() => window.scrollTo(0, 0)}
-            variant="contained"
+          <Box
+            className="learn-more-button"
             sx={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 1,
               backgroundColor: 'rgba(255, 255, 255, 0.95)',
-              color: 'white',
+              color: service.color,
               fontWeight: 600,
+              padding: '8px 16px',
+              borderRadius: '50px',
               border: '2px solid',
               borderColor: 'rgba(255, 255, 255, 0.2)',
               backdropFilter: 'blur(4px)',
-              textShadow: '0 1px 2px rgba(0,0,0,0.1)',
+              cursor: 'pointer',
               '&:hover': {
                 backgroundColor: 'white',
+                color: service.color,
                 transform: 'translateY(-2px)',
                 boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+                borderColor: 'rgba(255, 255, 255, 0.4)',
+              },
+              '&:active': {
+                transform: 'translateY(0)',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
               },
               transition: 'all 0.3s ease',
             }}
           >
             Learn More
-          </Button>
+            <ArrowForwardIcon sx={{ fontSize: 20 }} />
+          </Box>
         </CardContent>
       </Card>
     </motion.div>
@@ -232,7 +251,7 @@ const Home = () => {
                 textShadow: '0 2px 4px rgba(0,0,0,0.1)',
               }}
             >
-              Enhancing Operational Efficiency through Outsourced Accounting Solutions
+              Optimising Business Performance Through Professional Accounting Solutions
             </Typography>
             <Typography
               variant="h4"
@@ -242,11 +261,10 @@ const Home = () => {
                 fontSize: { xs: '1.25rem', md: '1.5rem' },
               }}
             >
-              Your trusted partner for seamless accounting services and sustainable business growth.
+              Your trusted partner for comprehensive accounting services and sustainable business growth in Australia.
             </Typography>
             <Button
               onClick={() => window.scrollTo(0, 0)}
-
               variant="contained"
               color="secondary"
               size="large"
@@ -259,16 +277,23 @@ const Home = () => {
                 textTransform: 'none',
                 fontSize: '1.1rem',
                 backgroundColor: 'rgba(255, 255, 255, 0.95)',
-                color: 'white',
+                color: theme.palette.primary.main,
                 border: '2px solid',
                 borderColor: 'rgba(255, 255, 255, 0.2)',
                 backdropFilter: 'blur(4px)',
                 boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
-                textShadow: '0 1px 2px rgba(0,0,0,0.1)',
+                position: 'relative',
+                overflow: 'hidden',
                 '&:hover': {
                   backgroundColor: 'white',
+                  color: theme.palette.primary.dark,
                   transform: 'translateY(-2px)',
                   boxShadow: '0 6px 16px rgba(0,0,0,0.2)',
+                  borderColor: 'rgba(255, 255, 255, 0.4)',
+                },
+                '&:active': {
+                  transform: 'translateY(0)',
+                  boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
                 },
                 transition: 'all 0.3s ease',
               }}
@@ -302,7 +327,7 @@ const Home = () => {
             }
           }}>
             {softwareTools.map((tool, index) => (
-              <Grid item key={index} sx={{ minWidth: 150 }}>
+              <Grid item key={index} sx={{ minWidth: 200, flexShrink: 0 }}>
                 <motion.div
                   whileHover={{ scale: 1.05 }}
                   transition={{ type: "spring", stiffness: 300 }}
@@ -315,14 +340,15 @@ const Home = () => {
                       alignItems: 'center',
                       justifyContent: 'center',
                       gap: 2,
-                      height: 60,
+                      height: 80,
                       bgcolor: 'transparent',
                       border: '1px solid',
                       borderColor: 'divider',
                       borderRadius: 2,
+                      width: '100%',
                     }}
                   >
-                    <Box sx={{ color: tool.color }}>
+                    <Box sx={{ color: tool.color, flexShrink: 0 }}>
                       {tool.icon}
                     </Box>
                     <Typography
@@ -331,6 +357,9 @@ const Home = () => {
                         fontWeight: 600,
                         color: 'text.primary',
                         whiteSpace: 'nowrap',
+                        overflow: 'hidden',
+                        textOverflow: 'ellipsis',
+                        maxWidth: '100%',
                       }}
                     >
                       {tool.name}
@@ -341,7 +370,7 @@ const Home = () => {
             ))}
             {/* Duplicate items for infinite scroll effect */}
             {softwareTools.map((tool, index) => (
-              <Grid item key={`duplicate-${index}`} sx={{ minWidth: 150 }}>
+              <Grid item key={`duplicate-${index}`} sx={{ minWidth: 200, flexShrink: 0 }}>
                 <motion.div
                   whileHover={{ scale: 1.05 }}
                   transition={{ type: "spring", stiffness: 300 }}
@@ -354,14 +383,15 @@ const Home = () => {
                       alignItems: 'center',
                       justifyContent: 'center',
                       gap: 2,
-                      height: 60,
+                      height: 80,
                       bgcolor: 'transparent',
                       border: '1px solid',
                       borderColor: 'divider',
                       borderRadius: 2,
+                      width: '100%',
                     }}
                   >
-                    <Box sx={{ color: tool.color }}>
+                    <Box sx={{ color: tool.color, flexShrink: 0 }}>
                       {tool.icon}
                     </Box>
                     <Typography
@@ -370,6 +400,9 @@ const Home = () => {
                         fontWeight: 600,
                         color: 'text.primary',
                         whiteSpace: 'nowrap',
+                        overflow: 'hidden',
+                        textOverflow: 'ellipsis',
+                        maxWidth: '100%',
                       }}
                     >
                       {tool.name}
@@ -403,6 +436,11 @@ const Home = () => {
                       bgcolor: 'background.paper',
                       border: '1px solid',
                       borderColor: 'divider',
+                      height: '100%',
+                      minHeight: 200,
+                      display: 'flex',
+                      flexDirection: 'column',
+                      justifyContent: 'center',
                       '&:hover': {
                         boxShadow: '0 8px 24px rgba(0,0,0,0.1)',
                         transform: 'translateY(-4px)',
@@ -410,7 +448,7 @@ const Home = () => {
                       transition: 'all 0.3s ease',
                     }}
                   >
-                    <Box sx={{ mb: 2 }}>{stat.icon}</Box>
+                    <Box sx={{ mb: 2, display: 'flex', justifyContent: 'center' }}>{stat.icon}</Box>
                     <Typography
                       variant="h3"
                       sx={{
@@ -419,11 +457,22 @@ const Home = () => {
                         background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.secondary.main} 100%)`,
                         WebkitBackgroundClip: 'text',
                         WebkitTextFillColor: 'transparent',
+                        fontSize: { xs: '1.75rem', sm: '2.25rem', md: '2.5rem' },
+                        lineHeight: 1.2,
                       }}
                     >
                       {stat.value}
                     </Typography>
-                    <Typography variant="body1" color="text.secondary">
+                    <Typography 
+                      variant="body1" 
+                      color="text.secondary"
+                      sx={{
+                        fontSize: { xs: '0.875rem', sm: '1rem' },
+                        lineHeight: 1.4,
+                        px: 1,
+                        fontWeight: 500,
+                      }}
+                    >
                       {stat.label}
                     </Typography>
                   </Paper>
@@ -441,35 +490,7 @@ const Home = () => {
           position: 'relative',
           overflow: 'hidden',
           background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)',
-          '&::before': {
-            content: '""',
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            background: 'radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.1) 0%, transparent 50%)',
-            animation: 'pulse 8s ease-in-out infinite',
-            '@keyframes pulse': {
-              '0%': { transform: 'scale(1)' },
-              '50%': { transform: 'scale(1.2)' },
-              '100%': { transform: 'scale(1)' },
-            },
-          },
-          '&::after': {
-            content: '""',
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            background: 'linear-gradient(45deg, transparent, rgba(99, 102, 241, 0.05), transparent)',
-            animation: 'shine 8s linear infinite',
-            '@keyframes shine': {
-              '0%': { transform: 'translateX(-100%)' },
-              '100%': { transform: 'translateX(100%)' },
-            },
-          },
+          color: 'white',
         }}
       >
         <Container maxWidth="lg">
@@ -486,7 +507,7 @@ const Home = () => {
                 textShadow: '0 2px 4px rgba(0,0,0,0.1)',
               }}
             >
-              Our Services
+              Our Professional Services
             </Typography>
             <Typography
               variant="h6"
@@ -498,7 +519,7 @@ const Home = () => {
                 opacity: 0.9,
               }}
             >
-              Comprehensive accounting solutions tailored to your business needs.
+              Comprehensive accounting and business advisory services tailored to meet your organisation's requirements.
             </Typography>
           </Box>
 
@@ -527,10 +548,10 @@ const Home = () => {
                   WebkitTextFillColor: 'transparent',
                 }}
               >
-                Trusted by Professionals Across Industries
+                Trusted by Professional Services Firms Nationwide
               </Typography>
               <Typography variant="body1" color="text.secondary" sx={{ mb: 4 }}>
-              Our team of certified professionals upholds the highest standards of accuracy and regulatory compliance. We’re dedicated to delivering excellence in every aspect of accounting and business management.
+                Our team of qualified professionals maintains the highest standards of accuracy and regulatory compliance. We are committed to delivering excellence in accounting and business advisory services across Australia.
               </Typography>
               <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
                 <Paper
@@ -620,35 +641,6 @@ const Home = () => {
           overflow: 'hidden',
           background: 'linear-gradient(135deg, #1e40af 0%, #3b82f6 100%)',
           color: 'white',
-          '&::before': {
-            content: '""',
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            background: 'radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1) 0%, transparent 50%)',
-            animation: 'pulse 8s ease-in-out infinite',
-            '@keyframes pulse': {
-              '0%': { transform: 'scale(1)' },
-              '50%': { transform: 'scale(1.2)' },
-              '100%': { transform: 'scale(1)' },
-            },
-          },
-          '&::after': {
-            content: '""',
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            background: 'linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent)',
-            animation: 'shine 8s linear infinite',
-            '@keyframes shine': {
-              '0%': { transform: 'translateX(-100%)' },
-              '100%': { transform: 'translateX(100%)' },
-            },
-          },
         }}
       >
         <Container maxWidth="md">
@@ -677,7 +669,7 @@ const Home = () => {
                   textShadow: '0 2px 4px rgba(0,0,0,0.1)',
                 }}
               >
-                Ready to streamline your accounting and optimize your business operations?
+                Ready to Enhance Your Business Operations Through Professional Accounting Solutions?
               </Typography>
               <Typography
                 variant="h6"
@@ -690,7 +682,7 @@ const Home = () => {
                   mx: 'auto',
                 }}
               >
-                Let's discuss how we can help streamline your financial operations and drive your business growth forward.
+                Let's discuss how our professional services can optimise your financial operations and support your business objectives.
               </Typography>
               <motion.div
                 whileHover={{ scale: 1.05 }}
@@ -716,28 +708,16 @@ const Home = () => {
                     boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
                     position: 'relative',
                     overflow: 'hidden',
-                    '&::before': {
-                      content: '""',
-                      position: 'absolute',
-                      top: 0,
-                      left: 0,
-                      right: 0,
-                      bottom: 0,
-                      background: 'linear-gradient(45deg, transparent, rgba(255,255,255,0.2), transparent)',
-                      backgroundSize: '200% 200%',
-                      animation: 'shine 3s linear infinite',
-                      '@keyframes shine': {
-                        '0%': { backgroundPosition: '200% 0' },
-                        '100%': { backgroundPosition: '-200% 0' },
-                      },
-                    },
                     '&:hover': {
                       backgroundColor: 'white',
+                      color: '#1e3a8a',
                       transform: 'translateY(-2px)',
                       boxShadow: '0 6px 16px rgba(0,0,0,0.2)',
-                      '&::before': {
-                        animation: 'none',
-                      },
+                      borderColor: 'rgba(255, 255, 255, 0.4)',
+                    },
+                    '&:active': {
+                      transform: 'translateY(0)',
+                      boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
                     },
                     transition: 'all 0.3s ease',
                   }}
@@ -756,17 +736,8 @@ const Home = () => {
           py: { xs: 8, md: 12 },
           position: 'relative',
           overflow: 'hidden',
-          background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)',
-          color: 'white',
-          '&::before': {
-            content: '""',
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            background: 'radial-gradient(circle at 50% 50%, rgba(79, 70, 229, 0.1) 0%, transparent 50%)',
-          }
+          background: 'white',
+          color: 'text.primary',
         }}
       >
         <Container maxWidth="lg">
@@ -783,17 +754,7 @@ const Home = () => {
                     position: 'relative',
                     borderRadius: '20px',
                     overflow: 'hidden',
-                    boxShadow: '0 20px 40px rgba(0,0,0,0.3)',
-                    '&::before': {
-                      content: '""',
-                      position: 'absolute',
-                      top: 0,
-                      left: 0,
-                      right: 0,
-                      bottom: 0,
-                      background: 'linear-gradient(45deg, rgba(0,0,0,0.3), transparent)',
-                      zIndex: 1,
-                    }
+                    boxShadow: '0 20px 40px rgba(0,0,0,0.1)',
                   }}
                 >
                   <Box
@@ -817,7 +778,6 @@ const Home = () => {
                       left: 0,
                       right: 0,
                       p: 4,
-                      zIndex: 2,
                       background: 'linear-gradient(to top, rgba(0,0,0,0.8), transparent)',
                     }}
                   >
@@ -855,29 +815,28 @@ const Home = () => {
                   sx={{
                     mb: 3,
                     fontWeight: 700,
-                    background: 'linear-gradient(135deg, #fff 0%, #94a3b8 100%)',
+                    background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.secondary.main} 100%)`,
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
                     fontSize: { xs: '2.5rem', md: '3.5rem' },
-                    textShadow: '0 2px 4px rgba(0,0,0,0.1)',
                   }}
                 >
-                  Transparent Pricing Plans
+                  Transparent Service Packages
                 </Typography>
                 <Typography
                   variant="h6"
                   sx={{
                     mb: 4,
-                    color: '#94a3b8',
+                    color: 'text.secondary',
                     fontSize: { xs: '1.1rem', md: '1.25rem' },
                     lineHeight: 1.6,
                   }}
                 >
-                  Choose the perfect plan that fits your business needs and budget. Our pricing is straightforward and designed to scale with your growth.
+                  Select a service package that aligns with your organisation's requirements and budgetary considerations. Our pricing structure is designed to support your business growth and scalability.
                 </Typography>
                 <Button
                   variant="contained"
-                  color="secondary"
+                  color="primary"
                   size="large"
                   component={RouterLink}
                   to="/pricing"
@@ -888,35 +847,12 @@ const Home = () => {
                     borderRadius: '50px',
                     textTransform: 'none',
                     fontSize: '1.1rem',
-                    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                    backgroundColor: theme.palette.primary.main,
                     color: 'white',
-                    border: '1px solid',
-                    borderColor: 'rgba(255, 255, 255, 0.2)',
-                    backdropFilter: 'blur(4px)',
-                    position: 'relative',
-                    overflow: 'hidden',
-                    '&::before': {
-                      content: '""',
-                      position: 'absolute',
-                      top: 0,
-                      left: 0,
-                      right: 0,
-                      bottom: 0,
-                      background: 'linear-gradient(45deg, transparent, rgba(255,255,255,0.2), transparent)',
-                      backgroundSize: '200% 200%',
-                      animation: 'shine 3s linear infinite',
-                      '@keyframes shine': {
-                        '0%': { backgroundPosition: '200% 0' },
-                        '100%': { backgroundPosition: '-200% 0' },
-                      },
-                    },
                     '&:hover': {
-                      backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                      backgroundColor: theme.palette.primary.dark,
                       transform: 'translateY(-2px)',
-                      boxShadow: '0 6px 16px rgba(0,0,0,0.2)',
-                      '&::before': {
-                        animation: 'none',
-                      },
+                      boxShadow: '0 6px 16px rgba(0,0,0,0.1)',
                     },
                     transition: 'all 0.3s ease',
                   }}
@@ -935,17 +871,8 @@ const Home = () => {
           py: { xs: 8, md: 12 },
           position: 'relative',
           overflow: 'hidden',
-          background: 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)',
+          background: `linear-gradient(135deg, ${theme.palette.primary.dark} 0%, ${theme.palette.secondary.dark} 100%)`,
           color: 'white',
-          '&::before': {
-            content: '""',
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            background: 'radial-gradient(circle at 50% 50%, rgba(255,255,255,0.05) 0%, transparent 50%)',
-          }
         }}
       >
         <Container maxWidth="lg">
@@ -962,24 +889,24 @@ const Home = () => {
                   sx={{
                     mb: 3,
                     fontWeight: 700,
-                    background: 'linear-gradient(135deg, #fff 0%, #a1a1aa 100%)',
+                    background: 'linear-gradient(135deg, #fff 0%, #e0e7ff 100%)',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
                     fontSize: { xs: '2.5rem', md: '3.5rem' },
                   }}
                 >
-                  Our Story
+                  Our Professional Journey
                 </Typography>
                 <Typography
                   variant="h6"
                   sx={{
                     mb: 4,
-                    color: '#a1a1aa',
+                    color: '#e0e7ff',
                     fontSize: { xs: '1.1rem', md: '1.25rem' },
                     lineHeight: 1.6,
                   }}
                 >
-                  See how our expertise and innovation have redefined accounting services from the start.
+                  Discover how our expertise and innovation have established new benchmarks in professional accounting services.
                 </Typography>
                 <Button
                   component={RouterLink}
@@ -1000,11 +927,13 @@ const Home = () => {
                     '&:hover': {
                       backgroundColor: 'rgba(255, 255, 255, 0.2)',
                       transform: 'translateY(-2px)',
+                      boxShadow: '0 6px 16px rgba(0,0,0,0.2)',
+                      borderColor: 'rgba(255, 255, 255, 0.4)',
                     },
                     transition: 'all 0.3s ease',
                   }}
                 >
-                  Learn More About Us
+                  Learn More About Our Organisation
                 </Button>
               </motion.div>
             </Grid>
@@ -1021,16 +950,6 @@ const Home = () => {
                     borderRadius: '20px',
                     overflow: 'hidden',
                     boxShadow: '0 20px 40px rgba(0,0,0,0.3)',
-                    '&::before': {
-                      content: '""',
-                      position: 'absolute',
-                      top: 0,
-                      left: 0,
-                      right: 0,
-                      bottom: 0,
-                      background: 'linear-gradient(45deg, rgba(0,0,0,0.3), transparent)',
-                      zIndex: 1,
-                    }
                   }}
                 >
                   <Box
@@ -1054,7 +973,6 @@ const Home = () => {
                       left: 0,
                       right: 0,
                       p: 4,
-                      zIndex: 2,
                       background: 'linear-gradient(to top, rgba(0,0,0,0.8), transparent)',
                     }}
                   >
