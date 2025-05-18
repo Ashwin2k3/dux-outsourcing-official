@@ -157,7 +157,13 @@ const MainLayout = () => {
                 aria-label="open drawer"
                 edge="start"
                 onClick={handleDrawerToggle}
-                sx={{ ml: 2 }}
+                sx={{ 
+                  ml: 2,
+                  color: theme.palette.text.primary,
+                  '&:hover': {
+                    backgroundColor: 'rgba(0, 0, 0, 0.04)',
+                  },
+                }}
               >
                 <MenuIcon />
               </IconButton>
