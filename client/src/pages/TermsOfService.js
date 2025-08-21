@@ -103,7 +103,7 @@ const TermsOfService = () => {
             For any questions regarding these Terms of Service, please contact us at:
           </Typography>
           <Box sx={{ mt: 2 }}>
-            <Typography>Email: duxoutsourcing@gmail.com</Typography>
+            <Typography>Email: manish.gupta@duxoutsourcing.com</Typography>
             <Typography>Phone: +91 92122 50127</Typography>
           </Box>
         </Box>

@@ -1,142 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import {
   Container,
   Typography,
   Box,
-  TextField,
   Button,
   Grid,
-  useTheme,
-  Alert,
-  CircularProgress,
-  MenuItem,
 } from '@mui/material';
 import { motion } from 'framer-motion';
-import { useLocation } from 'react-router-dom';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import EmailIcon from '@mui/icons-material/Email';
 import PhoneIcon from '@mui/icons-material/Phone';
-import BusinessIcon from '@mui/icons-material/Business';
-import FlagIcon from '@mui/icons-material/Flag';
 import PublicIcon from '@mui/icons-material/Public';
 
 const Contact = () => {
-  const theme = useTheme();
-  const location = useLocation();
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    company: '',
-    phone: '',
-    message: '',
-    plan: 'Full Time',
-    enquiryType: 'General',
-  });
-  const [formErrors, setFormErrors] = useState({});
-  const [status, setStatus] = useState({
-    loading: false,
-    success: false,
-    error: false,
-    message: '',
-  });
-
-  useEffect(() => {
-    // Get plan from URL parameters
-    const searchParams = new URLSearchParams(location.search);
-    const planFromUrl = searchParams.get('plan');
-    if (planFromUrl) {
-      setFormData(prev => ({
-        ...prev,
-        plan: decodeURIComponent(planFromUrl)
-      }));
-    }
-  }, [location]);
-
-  const validateForm = () => {
-    const errors = {};
-    if (!formData.name.trim()) errors.name = 'Name is required';
-    if (!formData.email.trim()) {
-      errors.email = 'Email is required';
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      errors.email = 'Email is invalid';
-    }
-    if (!formData.message.trim()) errors.message = 'Message is required';
-    setFormErrors(errors);
-    return Object.keys(errors).length === 0;
-  };
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-    // Clear error when user starts typing
-    if (formErrors[name]) {
-      setFormErrors(prev => ({
-        ...prev,
-        [name]: ''
-      }));
-    }
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    
-    if (!validateForm()) {
-      setStatus({
-        loading: false,
-        success: false,
-        error: true,
-        message: 'Please fill in all required fields correctly.'
-      });
-      return;
-    }
-
-    setStatus({ loading: true, success: false, error: false, message: '' });
-
-    try {
-      // Format the message with WhatsApp formatting
-      const message = `*New Contact Form Submission*\n\n*Name:* ${formData.name}\n*Email:* ${formData.email}\n*Company:* ${formData.company || 'Not provided'}\n*Phone:* ${formData.phone || 'Not provided'}\n*Plan:* ${formData.plan}\n*Enquiry Type:* ${formData.enquiryType}\n\n*Message:*\n${formData.message}`;
-
-      // Get WhatsApp number from environment variable or use default
-      const whatsappNumber = process.env.REACT_APP_WHATSAPP_NUMBER || '919212250127';
-      const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-
-      // Open WhatsApp in a new tab
-      const newWindow = window.open(whatsappUrl, '_blank');
-      
-      if (newWindow) {
-        setStatus({
-          loading: false,
-          success: true,
-          error: false,
-          message: 'Opening WhatsApp chat...'
-        });
-
-        // Reset form
-        setFormData({
-          name: '',
-          email: '',
-          company: '',
-          phone: '',
-          message: '',
-          plan: 'Full Time',
-          enquiryType: 'General',
-        });
-      } else {
-        throw new Error('Could not open WhatsApp. Please check your popup settings.');
-      }
-    } catch (error) {
-      setStatus({
-        loading: false,
-        success: false,
-        error: true,
-        message: error.message || 'Failed to open WhatsApp chat. Please try again.'
-      });
-    }
-  };
-
   return (
     <Box>
       {/* Hero and Form Section */}
@@ -215,7 +91,7 @@ const Contact = () => {
             </motion.div>
           </Box>
 
-          {/* Contact Form */}
+          {/* Contact Options (No Form) */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -223,253 +99,62 @@ const Contact = () => {
             viewport={{ once: true }}
           >
             <Box
-              component="form"
-              onSubmit={handleSubmit}
               sx={{
-                maxWidth: 800,
+                maxWidth: 1000,
                 mx: 'auto',
-                p: { xs: 3, md: 4 },
-                borderRadius: 2,
-                boxShadow: '0 8px 32px rgba(0, 0, 0, 0.2)',
-                background: 'rgba(255, 255, 255, 0.95)',
-                backdropFilter: 'blur(10px)',
-                border: '1px solid',
-                borderColor: 'rgba(255, 255, 255, 0.2)',
                 position: 'relative',
                 zIndex: 1,
-                '&:hover': {
-                  boxShadow: '0 12px 40px rgba(0, 0, 0, 0.3)',
-                  transform: 'translateY(-4px)',
-                  transition: 'all 0.3s ease',
-                },
               }}
             >
-              {status.message && (
-                <Alert
-                  severity={status.success ? 'success' : 'error'}
-                  sx={{ mb: 3 }}
-                >
-                  {status.message}
-                </Alert>
-              )}
-
               <Grid container spacing={3}>
-                <Grid item xs={12} sm={6}>
-                  <TextField
-                    required
-                    fullWidth
-                    label="Name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    variant="outlined"
-                    error={!!formErrors.name}
-                    helperText={formErrors.name}
-                    sx={{
-                      '& .MuiOutlinedInput-root': {
-                        backgroundColor: 'rgba(255, 255, 255, 0.9)',
-                        '& fieldset': {
-                          borderColor: 'rgba(0, 0, 0, 0.1)',
-                        },
-                        '&:hover fieldset': {
-                          borderColor: 'rgba(0, 0, 0, 0.2)',
-                        },
-                        '&.Mui-focused fieldset': {
-                          borderColor: 'primary.main',
-                        },
-                      },
-                    }}
-                  />
+                <Grid item xs={12} md={4}>
+                  <Box sx={{ p: 3.5, borderRadius: 2, background: 'rgba(255, 255, 255, 0.95)', backdropFilter: 'blur(10px)', border: '1px solid', borderColor: 'rgba(0,0,0,0.06)', boxShadow: '0 6px 20px rgba(0,0,0,0.08)', height: '100%', transition: 'transform 0.3s ease, box-shadow 0.3s ease', '&:hover': { transform: 'translateY(-4px)', boxShadow: '0 12px 32px rgba(0,0,0,0.12)' } }}>
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mb: 1.5 }}>
+                      <Box sx={{ width: 44, height: 44, borderRadius: '50%', background: 'rgba(99,102,241,0.12)', display: 'grid', placeItems: 'center' }}>
+                        <EmailIcon sx={{ color: 'primary.main' }} />
+                      </Box>
+                      <Typography variant="h6" sx={{ fontWeight: 700 }} color="primary">Email Us</Typography>
+                    </Box>
+                    <Typography variant="body2" sx={{ color: '#0f172a', opacity: 0.85, mb: 2 }}>
+                      Prefer email? We'll reply within one business day.
+                    </Typography>
+                    <Button component="a" href="mailto:manish.gupta@duxoutsourcing.com" variant="contained" fullWidth startIcon={<EmailIcon />} sx={{ fontSize: '0.8rem' }}>
+                      Email manish.gupta@duxoutsourcing.com
+                    </Button>
+                  </Box>
                 </Grid>
-                <Grid item xs={12} sm={6}>
-                  <TextField
-                    required
-                    fullWidth
-                    label="Email"
-                    name="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    variant="outlined"
-                    error={!!formErrors.email}
-                    helperText={formErrors.email}
-                    sx={{
-                      '& .MuiOutlinedInput-root': {
-                        backgroundColor: 'rgba(255, 255, 255, 0.9)',
-                        '& fieldset': {
-                          borderColor: 'rgba(0, 0, 0, 0.1)',
-                        },
-                        '&:hover fieldset': {
-                          borderColor: 'rgba(0, 0, 0, 0.2)',
-                        },
-                        '&.Mui-focused fieldset': {
-                          borderColor: 'primary.main',
-                        },
-                      },
-                    }}
-                  />
+                <Grid item xs={12} md={4}>
+                  <Box sx={{ p: 3.5, borderRadius: 2, background: 'rgba(255, 255, 255, 0.95)', backdropFilter: 'blur(10px)', border: '1px solid', borderColor: 'rgba(0,0,0,0.06)', boxShadow: '0 6px 20px rgba(0,0,0,0.08)', height: '100%', transition: 'transform 0.3s ease, box-shadow 0.3s ease', '&:hover': { transform: 'translateY(-4px)', boxShadow: '0 12px 32px rgba(0,0,0,0.12)' } }}>
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mb: 1.5 }}>
+                      <Box sx={{ width: 44, height: 44, borderRadius: '50%', background: 'rgba(59,130,246,0.12)', display: 'grid', placeItems: 'center' }}>
+                        <PhoneIcon sx={{ color: 'primary.main' }} />
+                      </Box>
+                      <Typography variant="h6" sx={{ fontWeight: 700 }} color="primary">Call Us</Typography>
+                    </Box>
+                    <Grid container spacing={1}>
+                      <Grid item xs={12}>
+                        <Button component="a" href="tel:+919212250127" fullWidth variant="outlined" startIcon={<PhoneIcon />}>Call India: +91 92122 50127</Button>
+                      </Grid>
+                      <Grid item xs={12}>
+                        <Button component="a" href="tel:+61883435000" fullWidth variant="outlined" startIcon={<PhoneIcon />}>Call Australia: (08) 8343-5000</Button>
+                      </Grid>
+                    </Grid>
+                  </Box>
                 </Grid>
-                <Grid item xs={12} sm={6}>
-                  <TextField
-                    fullWidth
-                    label="Company"
-                    name="company"
-                    value={formData.company}
-                    onChange={handleChange}
-                    variant="outlined"
-                    sx={{
-                      '& .MuiOutlinedInput-root': {
-                        backgroundColor: 'rgba(255, 255, 255, 0.9)',
-                        '& fieldset': {
-                          borderColor: 'rgba(0, 0, 0, 0.1)',
-                        },
-                        '&:hover fieldset': {
-                          borderColor: 'rgba(0, 0, 0, 0.2)',
-                        },
-                        '&.Mui-focused fieldset': {
-                          borderColor: 'primary.main',
-                        },
-                      },
-                    }}
-                  />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <TextField
-                    fullWidth
-                    label="Phone"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    variant="outlined"
-                    sx={{
-                      '& .MuiOutlinedInput-root': {
-                        backgroundColor: 'rgba(255, 255, 255, 0.9)',
-                        '& fieldset': {
-                          borderColor: 'rgba(0, 0, 0, 0.1)',
-                        },
-                        '&:hover fieldset': {
-                          borderColor: 'rgba(0, 0, 0, 0.2)',
-                        },
-                        '&.Mui-focused fieldset': {
-                          borderColor: 'primary.main',
-                        },
-                      },
-                    }}
-                  />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <TextField
-                    select
-                    fullWidth
-                    label="Plan"
-                    name="plan"
-                    value={formData.plan}
-                    onChange={handleChange}
-                    variant="outlined"
-                    sx={{
-                      '& .MuiOutlinedInput-root': {
-                        backgroundColor: 'rgba(255, 255, 255, 0.9)',
-                        '& fieldset': {
-                          borderColor: 'rgba(0, 0, 0, 0.1)',
-                        },
-                        '&:hover fieldset': {
-                          borderColor: 'rgba(0, 0, 0, 0.2)',
-                        },
-                        '&.Mui-focused fieldset': {
-                          borderColor: 'primary.main',
-                        },
-                      },
-                    }}
-                  >
-                    <MenuItem value="Full Time">Full Time</MenuItem>
-                    <MenuItem value="Part Time">Part Time</MenuItem>
-                    <MenuItem value="Project Based">Project Based</MenuItem>
-                  </TextField>
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <TextField
-                    select
-                    fullWidth
-                    label="Enquiry Type"
-                    name="enquiryType"
-                    value={formData.enquiryType}
-                    onChange={handleChange}
-                    variant="outlined"
-                    sx={{
-                      '& .MuiOutlinedInput-root': {
-                        backgroundColor: 'rgba(255, 255, 255, 0.9)',
-                        '& fieldset': {
-                          borderColor: 'rgba(0, 0, 0, 0.1)',
-                        },
-                        '&:hover fieldset': {
-                          borderColor: 'rgba(0, 0, 0, 0.2)',
-                        },
-                        '&.Mui-focused fieldset': {
-                          borderColor: 'primary.main',
-                        },
-                      },
-                    }}
-                  >
-                    <MenuItem value="General">General</MenuItem>
-                    <MenuItem value="Sales">Sales</MenuItem>
-                    <MenuItem value="Support">Support</MenuItem>
-                    <MenuItem value="Partnership">Partnership</MenuItem>
-                  </TextField>
-                </Grid>
-                <Grid item xs={12}>
-                  <TextField
-                    required
-                    fullWidth
-                    multiline
-                    rows={4}
-                    label="Message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    variant="outlined"
-                    error={!!formErrors.message}
-                    helperText={formErrors.message}
-                    sx={{
-                      '& .MuiOutlinedInput-root': {
-                        backgroundColor: 'rgba(255, 255, 255, 0.9)',
-                        '& fieldset': {
-                          borderColor: 'rgba(0, 0, 0, 0.1)',
-                        },
-                        '&:hover fieldset': {
-                          borderColor: 'rgba(0, 0, 0, 0.2)',
-                        },
-                        '&.Mui-focused fieldset': {
-                          borderColor: 'primary.main',
-                        },
-                      },
-                    }}
-                  />
-                </Grid>
-                <Grid item xs={12}>
-                  <Button
-                    type="submit"
-                    variant="contained"
-                    color="primary"
-                    size="large"
-                    fullWidth
-                    disabled={status.loading}
-                    sx={{ 
-                      py: 1.5,
-                      background: 'linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%)',
-                      '&:hover': {
-                        background: 'linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%)',
-                        transform: 'translateY(-2px)',
-                        boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
-                      },
-                      transition: 'all 0.3s ease',
-                    }}
-                  >
-                    {status.loading ? (
-                      <CircularProgress size={24} color="inherit" />
-                    ) : (
-                      'Send Message'
-                    )}
-                  </Button>
+                <Grid item xs={12} md={4}>
+                  <Box sx={{ p: 3.5, borderRadius: 2, background: 'rgba(255, 255, 255, 0.95)', backdropFilter: 'blur(10px)', border: '1px solid', borderColor: 'rgba(0,0,0,0.06)', boxShadow: '0 6px 20px rgba(0,0,0,0.08)', height: '100%', transition: 'transform 0.3s ease, box-shadow 0.3s ease', '&:hover': { transform: 'translateY(-4px)', boxShadow: '0 12px 32px rgba(0,0,0,0.12)' } }}>
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mb: 1.5 }}>
+                      <Box sx={{ width: 44, height: 44, borderRadius: '50%', background: 'rgba(34,197,94,0.12)', display: 'grid', placeItems: 'center' }}>
+                        <PublicIcon sx={{ color: 'primary.main' }} />
+                      </Box>
+                      <Typography variant="h6" sx={{ fontWeight: 700 }} color="primary">Connect</Typography>
+                    </Box>
+                    <Grid container spacing={1}>
+                      <Grid item xs={12}>
+                        <Button component="a" href="https://www.linkedin.com/company/dux-outsourcing-private-limited" target="_blank" rel="noopener noreferrer" fullWidth variant="outlined">LinkedIn</Button>
+                      </Grid>
+                    </Grid>
+                  </Box>
                 </Grid>
               </Grid>
             </Box>
@@ -540,14 +225,14 @@ const Contact = () => {
                 </Box>
                 <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
                   <PhoneIcon sx={{ mr: 2, color: 'primary.main' }} />
-                  <Typography variant="body1">
+                  <Typography variant="body1" component="a" href="tel:+919212250127" sx={{ color: 'inherit', textDecoration: 'none' }}>
                     +91 92122 50127
                   </Typography>
                 </Box>
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
                   <EmailIcon sx={{ mr: 2, color: 'primary.main' }} />
-                  <Typography variant="body1">
-                    manish_49@yahoo.com
+                  <Typography variant="body1" component="a" href="mailto:manish.gupta@duxoutsourcing.com" sx={{ color: 'inherit', textDecoration: 'none' }}>
+                    manish.gupta@duxoutsourcing.com
                   </Typography>
                 </Box>
               </Box>
@@ -589,13 +274,13 @@ const Contact = () => {
                 </Box>
                 <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
                   <PhoneIcon sx={{ mr: 2, color: 'primary.main' }} />
-                  <Typography variant="body1">
+                  <Typography variant="body1" component="a" href="tel:+6183435000" sx={{ color: 'inherit', textDecoration: 'none' }}>
                     (08) 8343-5000
                   </Typography>
                 </Box>
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
                   <EmailIcon sx={{ mr: 2, color: 'primary.main' }} />
-                  <Typography variant="body1">
+                  <Typography variant="body1" component="a" href="mailto:lsmadmin@lsmco.com.au" sx={{ color: 'inherit', textDecoration: 'none' }}>
                     lsmadmin@lsmco.com.au
                   </Typography>
                 </Box>

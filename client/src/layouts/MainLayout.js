@@ -304,7 +304,7 @@ const MainLayout = () => {
                 Your end-to-end outsourced accounting partner. Specializing in accounting and tax preparation services for businesses, CAs, and CPAs in Australia and India.
               </Typography>
               <Box sx={{ display: 'flex', gap: 2 }}>
-                <IconButton 
+                <IconButton component="a" href="https://www.linkedin.com/company/dux-outsourcing-private-limited" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
                   sx={{
                     color: '#e0e7ff',
                     backgroundColor: 'rgba(255, 255, 255, 0.1)',
@@ -317,7 +317,7 @@ const MainLayout = () => {
                 >
                   <LinkedInIcon />
                 </IconButton>
-                <IconButton 
+                <IconButton component="a" href="mailto:manish.gupta@duxoutsourcing.com" aria-label="Email"
                   sx={{
                     color: '#e0e7ff',
                     backgroundColor: 'rgba(255, 255, 255, 0.1)',
@@ -478,7 +478,7 @@ const MainLayout = () => {
                     <EmailIcon fontSize="small" />
                   </ListItemIcon>
                   <ListItemText 
-                    primary="duxoutsourcing@gmail.com"
+                    primary="manish.gupta@duxoutsourcing.com"
                     sx={{
                       '& .MuiTypography-root': {
                         color: '#e0e7ff',
@@ -580,7 +580,7 @@ const MainLayout = () => {
                 <Box sx={{ display: 'flex', gap: 2 }}>
                   <Button
                     component="a"
-                    href="https://www.linkedin.com/company/dux-outsourcing"
+                    href="https://www.linkedin.com/company/dux-outsourcing-private-limited"
                     target="_blank"
                     rel="noopener noreferrer"
                     sx={{
@@ -596,7 +596,7 @@ const MainLayout = () => {
                   </Button>
                   <Button
                     component="a"
-                    href="mailto:duxoutsourcing@gmail.com"
+                    href="mailto:manish.gupta@duxoutsourcing.com"
                     sx={{
                       color: '#e0e7ff',
                       border: '1px solid rgba(255, 255, 255, 0.2)',
