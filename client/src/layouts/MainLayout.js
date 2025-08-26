@@ -129,7 +129,7 @@ const MainLayout = () => {
             >
               <Box
                 component="img"
-                src="/logo192-removebg.png"
+                src="/logo192-removebg.svg"
                 alt="Dux Outsourcing Logo"
                 sx={{
                   height: 50,
