@@ -155,14 +155,14 @@ const Sitemap = () => {
                 Professional Contact Information
               </Typography>
               <Typography paragraph>
-                Professional Enquiries: info@duxoutsourcing.com
+                Professional Enquiries: manish.gupta@duxoutsourcing.com
               </Typography>
               <Typography paragraph>
                 Business Hours: Monday to Friday, 9:00 AM to 5:00 PM AEST
               </Typography>
-              <Typography paragraph>
+              {/* <Typography paragraph>
                 Registered Office: Level 1, 123 Business Street, Melbourne VIC 3000, Australia
-              </Typography>
+              </Typography> */}
             </Box>
           </motion.div>
         </Container>
