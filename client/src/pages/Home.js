@@ -97,11 +97,11 @@ const softwareTools = [
   { name: 'Xero', icon: <AccountBalanceIcon sx={{ fontSize: 40 }} />, color: '#13B5EA' },
   { name: 'MYOB', icon: <ReceiptIcon sx={{ fontSize: 40 }} />, color: '#00A0E3' },
   { name: 'QuickBooks', icon: <PaymentsIcon sx={{ fontSize: 40 }} />, color: '#2CA01C' },
-  { name: 'Sage', icon: <CalculateIcon sx={{ fontSize: 40 }} />, color: '#00DC82' },
-  { name: 'Reckon', icon: <AccountTreeIcon sx={{ fontSize: 40 }} />, color: '#FF6B00' },
+  // { name: 'Sage', icon: <CalculateIcon sx={{ fontSize: 40 }} />, color: '#00DC82' },
+  //{ name: 'Reckon', icon: <AccountTreeIcon sx={{ fontSize: 40 }} />, color: '#FF6B00' },
   { name: 'Microsoft Excel', icon: <AnalyticsIcon sx={{ fontSize: 40 }} />, color: '#217346' },
   { name: 'Power BI', icon: <TrendingUpIcon sx={{ fontSize: 40 }} />, color: '#F2C811' },
-  { name: 'Tableau', icon: <AutoFixHighIcon sx={{ fontSize: 40 }} />, color: '#E97627' },
+  // { name: 'Tableau', icon: <AutoFixHighIcon sx={{ fontSize: 40 }} />, color: '#E97627' },
   { name: 'Zoho', icon: <AccountBalanceIcon sx={{ fontSize: 40 }} />, color: '#FF6B00' },
 ];
 
