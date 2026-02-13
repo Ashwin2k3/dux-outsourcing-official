@@ -8,7 +8,6 @@ import {
   Box,
   Button,
   useTheme,
-  useMediaQuery,
   Paper,
 } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
@@ -108,7 +107,6 @@ const softwareTools = [
 
 const ServiceCard = ({ service }) => {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   return (
     <motion.div
@@ -208,7 +206,6 @@ const ServiceCard = ({ service }) => {
 
 const Home = () => {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   return (
     <Box>

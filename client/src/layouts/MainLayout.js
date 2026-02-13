@@ -16,41 +16,14 @@ import {
   useTheme,
   Grid,
   ListItemIcon,
-  TextField,
-  Menu,
-  MenuItem,
-  Avatar,
-  Divider,
-  ListItemButton,
-  Collapse,
-  Stack,
 } from '@mui/material';
 import {
   Menu as MenuIcon,
-  Close as CloseIcon,
-  Twitter as TwitterIcon,
-  Facebook as FacebookIcon,
-  Instagram as InstagramIcon,
   LinkedIn as LinkedInIcon,
-  Business as BusinessIcon,
-  Info as InfoIcon,
-  Article as ArticleIcon,
-  LocalOffer as LocalOfferIcon,
-  ContactMail as ContactMailIcon,
-  AccountBalance as AccountBalanceIcon,
-  Receipt as ReceiptIcon,
-  Payments as PaymentsIcon,
-  Calculate as CalculateIcon,
-  AccountTree as AccountTreeIcon,
-  Analytics as AnalyticsIcon,
-  AutoFixHigh as AutoFixHighIcon,
   Email as EmailIcon,
   Phone as PhoneIcon,
   LocationOn as LocationOnIcon,
-  ExpandLess,
-  ExpandMore
 } from '@mui/icons-material';
-import { motion } from 'framer-motion';
 
 const MainLayout = () => {
   const [mobileOpen, setMobileOpen] = useState(false);

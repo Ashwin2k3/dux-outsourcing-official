@@ -5,13 +5,11 @@ import {
   Box,
   Grid,
   Card,
-  CardContent,
   useTheme,
   Avatar,
   Chip,
   Stack,
   Paper,
-  Divider,
 } from '@mui/material';
 import { motion } from 'framer-motion';
 import {
@@ -19,17 +17,13 @@ import {
   People,
   TrendingUp,
   Security,
-  Support,
   Timeline,
   EmojiEvents,
-  Speed,
   Handshake,
   Dashboard,
   Assessment,
   Analytics,
-  Storage,
   Cloud,
-  Security as SecurityIcon,
 } from '@mui/icons-material';
 
 const About = () => {

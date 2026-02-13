@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import {
   Container,
   Box,
@@ -37,11 +37,7 @@ const Admin = () => {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
 
-  useEffect(() => {
-    fetchData();
-  }, [activeTab]);
-
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     try {
       if (activeTab === 0) {
         const response = await axios.get('/api/articles');
@@ -53,7 +49,11 @@ const Admin = () => {
     } catch (err) {
       setError('Failed to fetch data');
     }
-  };
+  }, [activeTab]);
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
 
   const handleTabChange = (event, newValue) => {
     setActiveTab(newValue);

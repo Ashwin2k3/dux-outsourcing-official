@@ -8,7 +8,6 @@ import {
   CardContent, 
   CardHeader,
   useTheme,
-  useMediaQuery,
   Divider,
   CardActions,
   Button,
@@ -18,7 +17,6 @@ import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import ReceiptIcon from '@mui/icons-material/Receipt';
 import PaymentsIcon from '@mui/icons-material/Payments';
 import CalculateIcon from '@mui/icons-material/Calculate';
-import AccountTreeIcon from '@mui/icons-material/AccountTree';
 import { useNavigate } from 'react-router-dom';
 import AnalyticsIcon from '@mui/icons-material/Analytics';
 import AutoFixHighIcon from '@mui/icons-material/AutoFixHigh';
@@ -106,7 +104,6 @@ const services = [
 
 const ServiceCard = ({ service }) => {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const navigate = useNavigate();
 
   return (
@@ -174,7 +171,6 @@ const ServiceCard = ({ service }) => {
 
 const Services = () => {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   return (
     <Box sx={{ py: 8, bgcolor: 'background.default' }}>

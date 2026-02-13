@@ -136,8 +136,6 @@ const serviceDetails = [
 ];
 
 const PricingCard = ({ plan }) => {
-  const theme = useTheme();
-
   return (
     <motion.div
       whileHover={{ y: -10 }}
