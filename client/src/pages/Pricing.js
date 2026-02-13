@@ -110,12 +110,6 @@ const serviceDetails = [
     enterprise: '✓',
   },
   {
-    service: 'SMSF Compliance',
-    basic: '✗',
-    professional: '✓',
-    enterprise: '✓',
-  },
-  {
     service: 'Financial Analysis',
     basic: '✗',
     professional: '✓',

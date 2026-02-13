@@ -135,25 +135,6 @@ const services = [
     ]
   },
   {
-    id: 'smsf',
-    title: 'SMSF Compliance',
-    description: 'Our SMSF or Self-Managed Super Fund service is exclusively curated for individuals looking to invest and manage their own super funds:',
-    features: [
-      'SMSF accounting',
-      'Financial statement preparation',
-      'Tax return lodgment',
-      'Compliance documentation'
-    ],
-    tagline: 'Manage your self-managed super fund efficiently',
-    detailedDescription: 'Our SMSF compliance services help you manage your self-managed super fund efficiently while ensuring full compliance with regulatory requirements. We provide comprehensive support for all aspects of SMSF management.',
-    benefits: [
-      'Regulatory compliance',
-      'Efficient fund management',
-      'Expert investment advice',
-      'Comprehensive reporting'
-    ]
-  },
-  {
     id: 'financial-reporting',
     title: 'Financial Reporting, Planning, & Analysis',
     description: 'Comprehensive financial reporting and analysis services to help businesses make informed decisions and achieve their financial goals.',

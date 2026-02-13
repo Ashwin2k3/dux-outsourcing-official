@@ -30,11 +30,6 @@ const Footer = () => {
               <ListItemText primary="Tax Returns" />
             </ListItemButton>
           </ListItem>
-          <ListItem disablePadding>
-            <ListItemButton component={RouterLink} to="/services#smsf">
-              <ListItemText primary="SMSF Compliance" />
-            </ListItemButton>
-          </ListItem>
         </List>
       </Grid>
     </Grid>

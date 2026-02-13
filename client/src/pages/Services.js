@@ -77,19 +77,6 @@ const services = [
     tagline: 'Navigate Australian taxation requirements with professional expertise'
   },
   {
-    id: 'smsf',
-    title: 'SMSF Compliance',
-    icon: <AccountTreeIcon sx={{ fontSize: 40 }} />,
-    description: 'Our SMSF specialists provide comprehensive compliance management for Self-Managed Super Funds:',
-    features: [
-      'SMSF compliance and reporting',
-      'Financial statement preparation',
-      'Tax return lodgement',
-      'Regulatory compliance management'
-    ],
-    tagline: 'Maintain SMSF compliance through professional fund management'
-  },
-  {
     id: 'financial-reporting',
     title: 'Financial Reporting',
     icon: <AnalyticsIcon sx={{ fontSize: 40 }} />,

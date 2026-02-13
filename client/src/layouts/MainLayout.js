@@ -76,7 +76,6 @@ const MainLayout = () => {
     { text: 'BAS Returns', path: '/services/bas' },
     { text: 'Payroll Compliances', path: '/services/payroll' },
     { text: 'Tax Returns', path: '/services/tax' },
-    { text: 'SMSF Compliance', path: '/services/smsf' },
     { text: 'Document Automation', path: '/services/document-automation' }
   ];
 

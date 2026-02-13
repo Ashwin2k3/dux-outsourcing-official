@@ -63,13 +63,6 @@ const services = [
     color: '#9333ea'
   },
   {
-    title: 'SMSF Compliance',
-    icon: <AccountTreeIcon sx={{ fontSize: 40 }} />,
-    description: 'Specialised Self-Managed Super Fund services with comprehensive compliance management and regulatory reporting.',
-    path: '/services#smsf',
-    color: '#2563eb'
-  },
-  {
     title: 'Document Automation',
     icon: <AutoFixHighIcon sx={{ fontSize: 40 }} />,
     description: 'Advanced document processing and automation solutions to enhance operational efficiency and streamline business processes.',

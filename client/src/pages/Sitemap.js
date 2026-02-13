@@ -27,7 +27,6 @@ const Sitemap = () => {
     { name: 'Business Activity Statements', path: '/services#bas' },
     { name: 'Payroll Compliance', path: '/services#payroll' },
     { name: 'Taxation Services', path: '/services#tax' },
-    { name: 'SMSF Compliance', path: '/services#smsf' },
   ];
 
   const legalPages = [
