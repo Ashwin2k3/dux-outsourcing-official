@@ -89,6 +89,20 @@ const About = () => {
       image: '/team/laxman.jpg',
       description: 'Mr Mehra serves as our esteemed Australia Business Advisor, based in Adelaide. With extensive experience in the Australian market, he provides strategic counsel and local expertise to facilitate successful business operations within the Australian business environment. His comprehensive understanding of Australian regulatory frameworks, market dynamics, and business practices positions him as an invaluable strategic partner for our organisation and clients.',
       expertise: ['Australian Market Strategy', 'Business Advisory', 'Regulatory Compliance', 'Market Entry Strategy'],
+    }, 
+    {
+      name: 'Sanjeev Bhandari',
+      role: 'Buisness Development Manager',
+      image: '/team/sanjeev.jpg',
+      description: 'Sanjeev Bhandari serves as our Business Development Manager with over eight years of experience across accounting, financial operations, and corporate finance within large corporate and government organisations. He specialises in identifying growth opportunities and helping businesses implement efficient financial and operational solutions. Sanjeev is a Chartered Accountant (India) and a Member of the Institute of Public Accountants Australia, bringing strong technical expertise and global financial insight. He is experienced with enterprise systems including SAP, Oracle, Microsoft Dynamics, and Xero, enabling him to bridge financial strategy with practical business execution.',
+      expertise: [
+        'Business Development & Client Relations',
+        'Financial Operations & Process Optimisation',
+        'ERP Systems & Financial Technology',
+        'Cash Flow & Working Capital Management',
+        'Billing & Accounts Receivable Operations',
+        'Financial Compliance & Reporting'
+      ],
     }
   ];
 
