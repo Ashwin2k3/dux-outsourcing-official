@@ -457,7 +457,21 @@ const MainLayout = () => {
                         opacity: 0.9,
                       }
                     }}
-                  />
+                  /> 
+                </ListItem>
+                <ListItem disablePadding sx={{ mb: 2 }}>
+                  <ListItemIcon sx={{ minWidth: 40, color: '#e0e7ff' }}>
+                    <EmailIcon fontSize="small" />
+                  </ListItemIcon>
+                  <ListItemText 
+                    primary="marketing@duxoutsourcing.com"
+                    sx={{
+                      '& .MuiTypography-root': {
+                        color: '#e0e7ff',
+                        opacity: 0.9,
+                      }
+                    }}
+                  /> 
                 </ListItem>
                 <ListItem disablePadding>
                   <ListItemIcon sx={{ minWidth: 40, color: '#e0e7ff' }}>

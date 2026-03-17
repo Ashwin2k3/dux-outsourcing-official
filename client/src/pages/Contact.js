@@ -118,8 +118,13 @@ const Contact = () => {
                     <Typography variant="body2" sx={{ color: '#0f172a', opacity: 0.85, mb: 2 }}>
                       Prefer email? We'll reply within one business day.
                     </Typography>
-                    <Button component="a" href="mailto:manish.gupta@duxoutsourcing.com" variant="contained" fullWidth startIcon={<EmailIcon />} sx={{ fontSize: '0.8rem' }}>
+                    
+                   <Button component="a" href="mailto:manish.gupta@duxoutsourcing.com" variant="contained" fullWidth startIcon={<EmailIcon />} sx={{ fontSize: '0.8rem' }}>
                       Email manish.gupta@duxoutsourcing.com
+                    </Button>
+
+                    <Button component="a" href="mailto:marketing@duxoutsourcing.com" variant="contained" fullWidth startIcon={<EmailIcon />} sx={{ fontSize: '0.8rem', mt: 1 }}>
+                      Email marketing@duxoutsourcing.com
                     </Button>
                   </Box>
                 </Grid>
@@ -137,6 +142,17 @@ const Contact = () => {
                       </Grid>
                       <Grid item xs={12}>
                         <Button component="a" href="tel:+61883435000" fullWidth variant="outlined" startIcon={<PhoneIcon />}>Call Australia: (08) 8343-5000</Button>
+                      </Grid>
+                      <Grid item xs={12}>
+                        <Button
+                          component="a"
+                          href="tel:+61452622699"
+                          fullWidth
+                          variant="outlined"
+                          startIcon={<PhoneIcon />}
+                        >
+                          Call Australia: 0452 622 699
+                        </Button>
                       </Grid>
                     </Grid>
                   </Box>

@@ -92,7 +92,7 @@ const About = () => {
     }, 
     {
       name: 'Sanjeev Bhandari',
-      role: 'Buisness Development Manager',
+      role: 'Business Development Manager',
       image: '/team/sanjeev.jpg',
       description: 'Sanjeev Bhandari serves as our Business Development Manager with over eight years of experience across accounting, financial operations, and corporate finance within large corporate and government organisations. He specialises in identifying growth opportunities and helping businesses implement efficient financial and operational solutions. Sanjeev is a Chartered Accountant (India) and a Member of the Institute of Public Accountants Australia, bringing strong technical expertise and global financial insight. He is experienced with enterprise systems including SAP, Oracle, Microsoft Dynamics, and Xero, enabling him to bridge financial strategy with practical business execution.',
       expertise: [

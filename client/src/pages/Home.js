@@ -266,7 +266,8 @@ const Home = () => {
                 textTransform: 'none',
                 fontSize: '1.1rem',
                 backgroundColor: 'rgba(255, 255, 255, 0.95)',
-                color: theme.palette.primary.main,
+                // color: theme.palette.primary.main,
+                color: '#fff', // 👈 make text white
                 border: '2px solid',
                 borderColor: 'rgba(255, 255, 255, 0.2)',
                 backdropFilter: 'blur(4px)',
